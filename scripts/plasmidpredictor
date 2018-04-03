@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+import os
+import pkg_resources
+sys.path.append('../')
+sys.path.append('./')
+from plasmidpredictor.PlasmidPredictor import PlasmidPredictor
+from plasmidpredictor.InputTypes import InputTypes
+
+version = ''
+try:
+	version = pkg_resources.get_distribution("plasmidpredictor").version
+except pkg_resources.DistributionNotFound:
+	version = 'x.y.z'
+
+parser = argparse.ArgumentParser(
+	description = 'plasmid incompatibility group prediction from uncorrected long reads',
+	usage = 'plasmidpredictor [options] plasmid_data.fa input.fastq', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument('plasmid_data', help='FASTA file containing plasmid data from downloader script', type=InputTypes.is_plasmid_file_valid )
+parser.add_argument('input_fastq', help='Input FASTQ file (optionally gzipped)', type=InputTypes.is_fastq_file_valid)
+
+parser.add_argument('--filtered_reads_file', '-f', help='Filename to save matching reads to')
+parser.add_argument('--output_file',	 '-o', help='Output file [STDOUT]')
+parser.add_argument('--max_gap',  help='Maximum gap for blocks to be contigous, measured in multiples of the k-mer size', type=int, default=4)
+parser.add_argument('--margin',  help='Flanking region around a block to use for mapping', type=int, default=50)
+parser.add_argument('--min_block_size',  help='Minimum block size in bases', type=int, default=150)
+parser.add_argument('--min_fasta_hits',	 '-m', help='Minimum No. of kmers matching a read', type=int, default = 10)
+parser.add_argument('--min_perc_coverage',	 '-c', help='Minimum percentage coverage of typing sequence to report', type=int, default = 95)
+parser.add_argument('--min_kmers_for_onex_pass', help='Minimum No. of kmers matching a read in 1st pass', type=int, default = 10)
+parser.add_argument('--print_interval',	 '-p', help='Print ST every this number of reads', type=int, default = 500)
+parser.add_argument('--kmer',	 '-k', help='k-mer size', type=InputTypes.is_kmer_valid, default = 13)
+parser.add_argument('--verbose', '-v', action='store_true', help='Turn on debugging [%(default)s]', default = False)
+parser.add_argument('--version', action='version', version=str(version))
+
+options = parser.parse_args()
+
+plasmidpredictor = PlasmidPredictor(options)
+plasmidpredictor.run()
