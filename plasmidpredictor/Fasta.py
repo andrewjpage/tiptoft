@@ -11,6 +11,7 @@ class Fasta:
 
 		self.sequences_to_kmers = self.sequence_kmers()
 		self.all_kmers = self.all_kmers_in_file()
+		self.kmers_to_genes = self.all_kmers_to_seq_in_file()
 		self.kmer_keys_set = set(self.all_kmers.keys())
 
 	def sequence_kmers(self):
@@ -28,6 +29,18 @@ class Fasta:
 			
 		return kmer_to_sequences
 		
+		
+	def all_kmers_to_seq_in_file(self):
+		kmers_to_genes = {}
+		for seq_name, kmer_counts in self.sequences_to_kmers.items():
+			for kmer, count in kmer_counts.items():
+
+				if kmer not in kmers_to_genes:
+					kmers_to_genes[kmer] = []
+				kmers_to_genes[kmer].append(seq_name)
+				
+		return  kmers_to_genes
+	
 	def all_kmers_in_file(self):
 		self.logger.info("Finding all k-mers in plasmid FASTA file")
 		all_kmers = {}
@@ -37,6 +50,5 @@ class Fasta:
 					all_kmers[kmer] += 1
 				else:
 					all_kmers[kmer] = 1
-		return all_kmers
 
-		
+		return all_kmers

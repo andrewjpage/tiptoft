@@ -54,9 +54,10 @@ class Fastq:
 		return self
 		
 	def map_read(self, read):
-		if self.does_read_contain_quick_pass_kmers(read.seq):
+		intersect_read_fasta_kmers = self.does_read_contain_quick_pass_kmers(read.seq) 
+		if intersect_read_fasta_kmers != None: 
 			self.logger.info("Read passes 1X check")
-			self.map_kmers_to_read(read.seq, read)
+			self.map_kmers_to_read(read.seq, read, intersect_read_fasta_kmers)
 			return True
 		else:
 			return False
@@ -66,18 +67,17 @@ class Fastq:
 		seq_length = len(sequence)
 		if seq_length < self.min_block_size:
 			self.logger.info("Read below minimum size")
-			return False
+			return None
 		
 		kmers_obj = Kmers(sequence, self.k)
 		read_onex_kmers = kmers_obj.get_one_x_coverage_of_kmers()
 		
 		intersect_read_fasta_kmers = self.fasta_obj.kmer_keys_set & set(read_onex_kmers)
 
-		print(str(len(read_onex_kmers))+ "\t"+ str(len(self.fasta_obj.kmer_keys_set)))
 		if len(intersect_read_fasta_kmers) > self.min_kmers_for_onex_pass:
-			return True
+			return intersect_read_fasta_kmers
 
-		return False
+		return None
 		
 		
 	def put_kmers_in_read_bins(self, seq_length, end, fasta_kmers, read_kmers):
@@ -95,7 +95,7 @@ class Fastq:
 		return sequence_hits, hit_counter,hit_kmers
 
 		
-	def map_kmers_to_read(self, sequence, read):	
+	def map_kmers_to_read(self, sequence, read, intersect_read_fasta_kmers):	
 		self.logger.info("Map k-mers to read")	
 
 		seq_length = len(sequence)
@@ -116,7 +116,7 @@ class Fastq:
 
 		block_kmers = self.create_kmers_for_block(block_start, block_end, read_kmer_hits)
 		#print(str(block_start) + "\t"+ str(block_end) + "\t" +str(block_end-block_start))
-		is_read_matching = self.apply_kmers_to_genes(self.fasta_obj,block_kmers)
+		is_read_matching = self.apply_kmers_to_genes(self.fasta_obj,block_kmers, intersect_read_fasta_kmers)
 		
 		if self.filtered_reads_file:
 			self.append_subread_to_fastq_file(read, block_start, block_end)
@@ -144,12 +144,29 @@ class Fastq:
 			
 		return block_kmers
 	
-	def apply_kmers_to_genes(self, fasta_obj, hit_kmers):
+	def genes_containing_first_pass_kmers(self, fasta_obj, first_pass_kmers):
+		genes = {}
+		for current_kmer in first_pass_kmers:
+			if current_kmer in fasta_obj.kmers_to_genes:
+				for gene_name in fasta_obj.kmers_to_genes[current_kmer]:
+					if gene_name in genes:
+						genes[gene_name] += 1
+					else:		
+						genes[gene_name] = 1
+		return genes
+				
+	
+	def apply_kmers_to_genes(self, fasta_obj, hit_kmers, first_pass_kmers):
 		num_genes_applied = 0
 		min_kmers = self.min_kmers_for_onex_pass * self.k
-		for (gene_name, kmers_dict) in fasta_obj.sequences_to_kmers.items():
+		gene_names = self.genes_containing_first_pass_kmers(fasta_obj, first_pass_kmers)
+		hit_kmers_set = set(hit_kmers)
+		
+		
+		for gene_name in gene_names.keys():
+			kmers_dict = fasta_obj.sequences_to_kmers[gene_name]
 			num_gene_kmers = len(kmers_dict)
-			intersection_hit_keys = set(kmers_dict) & set(hit_kmers) 
+			intersection_hit_keys = set(kmers_dict) & hit_kmers_set 
 			
 			if len(intersection_hit_keys) > min_kmers:
 				num_genes_applied += 1
