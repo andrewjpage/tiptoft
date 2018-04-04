@@ -32,6 +32,8 @@ class Fastq:
 	def read_filter_and_map(self):
 		counter = 0 
 		match_counter = 0
+		f = 0
+		r= 0
 		
 		self.logger.info("Reading in FASTQ file")
 		fh = self.open_file_read()
@@ -44,21 +46,23 @@ class Fastq:
 
 			if self.map_read(read):
 				match_counter +=1
+				f +=1
 			elif self.map_read(read.reverse_read()):
 				match_counter +=1
+				r +=1
 				
 		self.full_gene_coverage(counter)
 		self.logger.warn("Number of reads: "+str(counter))
-		self.logger.warn("Number of matching reads: "+str(match_counter))
+		self.logger.warn("Number of matching reads: "+str(match_counter)+"\t"+str(f)+"\t"+str(r))
 		
 		return self
 		
 	def map_read(self, read):
 		intersect_read_fasta_kmers = self.does_read_contain_quick_pass_kmers(read.seq) 
+		print(intersect_read_fasta_kmers)
 		if intersect_read_fasta_kmers != None: 
 			self.logger.info("Read passes 1X check")
-			self.map_kmers_to_read(read.seq, read, intersect_read_fasta_kmers)
-			return True
+			return self.map_kmers_to_read(read.seq, read, intersect_read_fasta_kmers)
 		else:
 			return False
 		
@@ -75,6 +79,7 @@ class Fastq:
 		intersect_read_fasta_kmers = self.fasta_obj.kmer_keys_set & set(read_onex_kmers)
 
 		if len(intersect_read_fasta_kmers) > self.min_kmers_for_onex_pass:
+			print(str(len(read_onex_kmers))+"\t"+str(len(self.fasta_obj.kmer_keys_set))+"\t"+str(len(intersect_read_fasta_kmers)))
 			return intersect_read_fasta_kmers
 
 		return None
