@@ -77,8 +77,7 @@ class Fastq:
 		
 		intersect_read_fasta_kmers = self.fasta_obj.kmer_keys_set & set(read_onex_kmers)
 
-		if len(intersect_read_fasta_kmers) > self.min_kmers_for_onex_pass:
-			git 
+		if len(intersect_read_fasta_kmers) > self.min_kmers_for_onex_pass: 
 			return intersect_read_fasta_kmers
 
 		return None
@@ -166,8 +165,9 @@ class Fastq:
 		gene_names = self.genes_containing_first_pass_kmers(fasta_obj, first_pass_kmers)
 		hit_kmers_set = set(hit_kmers)
 		
-		
 		for gene_name in gene_names.keys():
+			if gene_names[gene_name] < self.min_kmers_for_onex_pass:
+				continue
 			kmers_dict = fasta_obj.sequences_to_kmers[gene_name]
 			num_gene_kmers = len(kmers_dict)
 			intersection_hit_keys = set(kmers_dict) & hit_kmers_set 
@@ -178,8 +178,10 @@ class Fastq:
 					fasta_obj.sequences_to_kmers[gene_name][kmer] += 1 
 
 		if num_genes_applied > 0:
+			#print("*")
 			return True
 		else:
+			#print("=")
 			return False
 		
 	def full_gene_coverage(self, counter):
