@@ -9,6 +9,7 @@ class Kmers:
 	def __init__(self, sequence, k):
 		self.sequence = sequence
 		self.k = k
+		self.end = len(self.sequence) - self.k
 	
 	def get_all_kmers_counter(self, max_kmer_count = 1):
 		kmers = self.get_all_kmers_filtered(max_kmer_count)
@@ -19,9 +20,8 @@ class Kmers:
 	     
 	def get_all_kmers_filtered(self, max_kmer_count = 1):
 		kmers = {}
-		 
-		end = len(self.sequence) - self.k
-		kmer_sequences = [ self.sequence[i:i+self.k] for i in range(0,end)]
+
+		kmer_sequences = [ self.sequence[i:i+self.k] for i in range(0,self.end)]
 		
 		for i,k in enumerate(kmer_sequences):
 		    if k in kmers:
@@ -34,6 +34,6 @@ class Kmers:
 		return filtered_kmers
 	     
 	def get_one_x_coverage_of_kmers(self):
-		end = len(self.sequence) - self.k
-		kmers = [ self.sequence[i:i+self.k] for i in range(0,end, self.k)]
+		kmers = [ self.sequence[i:i+self.k] for i in range(0,self.end, self.k)]
 		return kmers
+		

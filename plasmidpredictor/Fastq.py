@@ -117,12 +117,10 @@ class Fastq:
 		blocks_obj = Blocks(self.k, self.min_block_size, self.max_gap, self.margin)
 		block_start, block_end = blocks_obj.find_largest_block(sequence_hits)
 			
-		#print(sequence_hits)
 		block_start = blocks_obj.adjust_block_start(block_start)
 		block_end = blocks_obj.adjust_block_end(block_end, seq_length)
 
 		block_kmers = self.create_kmers_for_block(block_start, block_end, read_kmer_hits)
-		#print(str(block_start) + "\t"+ str(block_end) + "\t" +str(block_end-block_start))
 		is_read_matching = self.apply_kmers_to_genes(self.fasta_obj,block_kmers, candidate_gene_names)
 		
 		if self.filtered_reads_file:
@@ -203,7 +201,7 @@ class Fastq:
 				
 		self.print_out_alleles(alleles)
 		self.identify_alleles_with_100_percent(alleles)
-		print("****")
+		
 		return alleles
 		
 	def identify_alleles_with_100_percent(self,alleles):
@@ -212,9 +210,14 @@ class Fastq:
 				self.genes_with_100_percent[g.name] = 1
 		
 	def print_out_alleles(self,alleles):
+		found_alleles = False
 		for g in alleles:
 			if g.percentage_coverage() >= self.min_perc_coverage:
 				print(g)
+				found_alleles = True
+				
+		if found_alleles:
+			print("****")
 		
 	# Derived from https://github.com/sanger-pathogens/Fastaq
 	# Author: Martin Hunt	

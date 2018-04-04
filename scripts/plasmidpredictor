@@ -27,26 +27,26 @@ parser.add_argument('--max_gap',  help='Maximum gap for blocks to be contigous, 
 parser.add_argument('--margin',  help='Flanking region around a block to use for mapping', type=int, default=10)
 parser.add_argument('--min_block_size',  help='Minimum block size in bases', type=int, default=130)
 parser.add_argument('--min_fasta_hits',	 '-m', help='Minimum No. of kmers matching a read', type=int, default = 10)
-parser.add_argument('--min_perc_coverage',	 '-c', help='Minimum percentage coverage of typing sequence to report', type=int, default = 95)
+parser.add_argument('--min_perc_coverage',	 '-c', help='Minimum percentage coverage of typing sequence to report', type=int, default = 85)
 parser.add_argument('--min_kmers_for_onex_pass', help='Minimum No. of kmers matching a read in 1st pass', type=int, default = 10)
-parser.add_argument('--print_interval',	 '-p', help='Print ST every this number of reads', type=int, default = 500)
+parser.add_argument('--print_interval',	 '-p', help='Print results every this number of reads', type=int, default = 1000)
 parser.add_argument('--kmer',	 '-k', help='k-mer size', type=InputTypes.is_kmer_valid, default = 13)
 parser.add_argument('--verbose', '-v', action='store_true', help='Turn on debugging [%(default)s]', default = False)
 parser.add_argument('--version', action='version', version=str(version))
 
 options = parser.parse_args()
 
-import cProfile, pstats, io
-
-pr = cProfile.Profile()
-pr.enable()   
+#import cProfile, pstats, io
+#
+#pr = cProfile.Profile()
+#pr.enable()   
 
 plasmidpredictor = PlasmidPredictor(options)
 plasmidpredictor.run()
 
-pr.disable()
-s = io.StringIO()
-sortby = 'cumulative'
-ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
-ps.print_stats()
-print(s.getvalue())
+#pr.disable()
+#s = io.StringIO()
+#sortby = 'cumulative'
+#ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+#ps.print_stats()
+#print(s.getvalue())
