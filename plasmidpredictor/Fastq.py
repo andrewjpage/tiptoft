@@ -53,8 +53,8 @@ class Fastq:
 				r +=1
 				
 		self.full_gene_coverage(counter)
-		self.logger.warn("Number of reads: "+str(counter))
-		self.logger.warn("Number of matching reads: "+str(match_counter)+"\t"+str(f)+"\t"+str(r))
+		self.logger.info("Number of reads: "+str(counter))
+		self.logger.info("Number of matching reads: "+str(match_counter)+"\t"+str(f)+"\t"+str(r))
 		
 		return self
 		
