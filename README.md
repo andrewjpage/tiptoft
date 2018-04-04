@@ -62,21 +62,22 @@ optional arguments:
   --output_file OUTPUT_FILE, -o OUTPUT_FILE
                         Output file [STDOUT] (default: None)
   --max_gap MAX_GAP     Maximum gap for blocks to be contigous, measured in
-                        multiples of the k-mer size (default: 4)
+                        multiples of the k-mer size (default: 3)
   --margin MARGIN       Flanking region around a block to use for mapping
-                        (default: 50)
+                        (default: 10)
   --min_block_size MIN_BLOCK_SIZE
-                        Minimum block size in bases (default: 150)
+                        Minimum block size in bases (default: 130)
   --min_fasta_hits MIN_FASTA_HITS, -m MIN_FASTA_HITS
                         Minimum No. of kmers matching a read (default: 10)
   --min_perc_coverage MIN_PERC_COVERAGE, -c MIN_PERC_COVERAGE
                         Minimum percentage coverage of typing sequence to
-                        report (default: 95)
+                        report (default: 85)
   --min_kmers_for_onex_pass MIN_KMERS_FOR_ONEX_PASS
                         Minimum No. of kmers matching a read in 1st pass
                         (default: 10)
   --print_interval PRINT_INTERVAL, -p PRINT_INTERVAL
-                        Print ST every this number of reads (default: 500)
+                        Print results every this number of reads (default:
+                        1000)
   --kmer KMER, -k KMER  k-mer size (default: 13)
   --verbose, -v         Turn on debugging [False]
   --version             show program's version number and exit
@@ -92,13 +93,13 @@ __kmer__:  The most important parameter. Long reads have a high error rate, so i
 
 __min_fasta_hits__: This is the minimum number of matching kmers in a read, for the read to be considered for analysis. It is a hard minimum threshold which is really there to speed things up. If you set this too high, then nothing will be returned.
 
-__filtered_reads_file__: If you provide a filename for this option, all of the reads which are estimated to match one of the MLST genes are saved to a file. Only the region predicted to contain the MLST gene is saved. This can be used for downstream analysis, such as de novo assembly. This file should not already exist. 
+__filtered_reads_file__: If you provide a filename for this option, all of the reads which are estimated to match one of the sequences are saved to a file. Only the region predicted to contain the sequence is saved. This can be used for downstream analysis, such as de novo assembly. This file should not already exist. 
 
 __output_file__: By default the predicted sequence types are printed to screen (STDOUT). If a filename is provided, the predicted sequence types are instead printed to this file.  This file should not already exist. 
 
 __print_interval__: Print out the predicted sequence type every X number of reads. This is where you are performing analysis in real time and want a quick result.
 
 # Resource usage
-For an 550Mbyte FASTQ file (unzipped) of long reads from a Pacbio RSII containing Salmonella required 550MB of RAM.
+For an 800Mbyte FASTQ file (unzipped) of long reads from a Oxford Nanopore MinION containing Salmonella required 80MB of RAM and took under 1 minute.
 
 
