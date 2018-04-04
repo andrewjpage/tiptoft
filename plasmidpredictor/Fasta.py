@@ -19,7 +19,6 @@ class Fasta:
 		
 		kmer_to_sequences = {}
 		for record in SeqIO.parse(self.filename, "fasta"):
-			sequence_length  = len(record.seq)
 			
 			kmers = Kmers(str(record.seq), self.k)
 			# We assume here that the sequence name is unique in the FASTA file

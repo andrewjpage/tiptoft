@@ -28,6 +28,7 @@ class Fastq:
 		self.min_kmers_for_onex_pass = min_kmers_for_onex_pass
 		self.fasta_obj = fasta_obj
 		self.min_perc_coverage = min_perc_coverage
+		self.genes_with_100_percent = {}
 
 	def read_filter_and_map(self):
 		counter = 0 
@@ -155,6 +156,9 @@ class Fastq:
 		for current_kmer in first_pass_kmers:
 			if current_kmer in fasta_obj.kmers_to_genes:
 				for gene_name in fasta_obj.kmers_to_genes[current_kmer]:
+					if gene_name in self.genes_with_100_percent:
+						continue
+					
 					if gene_name in genes:
 						genes[gene_name] += 1
 					else:		
@@ -198,8 +202,14 @@ class Fastq:
 				alleles.append(Gene(gene_name, kl, kz))
 				
 		self.print_out_alleles(alleles)
+		self.identify_alleles_with_100_percent(alleles)
 		print("****")
 		return alleles
+		
+	def identify_alleles_with_100_percent(self,alleles):
+		for g in alleles:
+			if g.percentage_coverage() == 100 and g.name not in self.genes_with_100_percent:
+				self.genes_with_100_percent[g.name] = 1
 		
 	def print_out_alleles(self,alleles):
 		for g in alleles:
