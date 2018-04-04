@@ -11,6 +11,7 @@ class Fasta:
 
 		self.sequences_to_kmers = self.sequence_kmers()
 		self.all_kmers = self.all_kmers_in_file()
+		self.kmer_keys_set = set(self.all_kmers.keys())
 
 	def sequence_kmers(self):
 		seq_counter = 0
@@ -37,4 +38,5 @@ class Fasta:
 				else:
 					all_kmers[kmer] = 1
 		return all_kmers
+
 		

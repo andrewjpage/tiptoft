@@ -8,7 +8,7 @@ from plasmidpredictor.Fastq import Fastq
 test_modules_dir = os.path.dirname(os.path.realpath(__file__))
 data_dir = os.path.join(test_modules_dir, 'data','fastq')
 
-import cProfile, pstats, io
+#import cProfile, pstats, io
 
 class TestFastq(unittest.TestCase):
 
@@ -39,6 +39,7 @@ class TestFastq(unittest.TestCase):
 	
 		self.assertTrue(fastq.does_read_contain_quick_pass_kmers("ATCAATACCTTCTTTATTGATTTTGATATTCACACGGCAAAAGAAACTATTTCAGCAAGCGATATTTTAACAACCGCTATTGATTTAGGTTTTATGCCTACTATGATTATCAAATCTGATAAAGGTTATCAAGCATATTTTGTTTTAGAAACGCCAGTCTATGTGACTTCAAAATCAGAATTTAAATCTGTCAAAGCAGCCAAAATAATTTCGCAAAATATCCGAGAATATTTTGGAAAGTCTTTGCCAGTTGATCTAACGTGTAATCATTTTGGTATTGCTCGCATACCAAGAACGGACAATGTAGAATTTTTTGATCCTAATTACCGTTATTCTTTCAAAGAATGGCAAGATTGGTCTTTCAAACAAACAGATAATAAGGGCTTTACTCGTTCAAGTCTAACGGTTTTAAGCGGTACAGAAGGCAAAAAACAAGTAGATGAACCCTGGTTTAATCTCTTATTGCACGAAACGAAATTTTCAGGAGAAAAGGGTTTAATAGGGCGTAATAACGTCATGTTTACCCTCTCTTTAGCCTACTTTAGTTCAGGCTATTCAATCGAAACGTGCGAATATAATATGTTTGAGTTTAATAATCGATTAGATCAACCCTTAGAAGAAAAAGAAGTAATCAAAATTGTTAGAAGTGCCTATTCAGAAAACTATCAAGGGGCTAATAGGGAATACATTACCATTCTTTGCAAAGCTTGGGTATCAAGTGATTTAACCAGTAAAGATTTATTTGTCCGTCAAGGGTGGTTTAAATTCAAGAAAAAAAGAAGCGAACGTCAACGTGTTCATTTGTCAGAATGGAAAGAAGATTTAATGGCTTATATTAGCGAAAAAAGCGATGTATACAAGCCTTATTTAGTGACGACCAAAAAAGAGATTAGAGAAGTG"))
 
+
 #	def test_stap_aureus_pacbio(self):
 #		logger = logging.getLogger(__name__)
 #		kmer = 11
@@ -49,7 +50,7 @@ class TestFastq(unittest.TestCase):
 #		fastas = Fastas(logger, databases+'/Staphylococcus_aureus/',kmer, False)
 #		mlst_profile = MlstProfile(databases+'/Staphylococcus_aureus/profile.txt')
 #		
-#		fastq = Fastq(logger, os.path.join(data_dir,'NCTC11150.fastq.gz'), kmer , fastas.get_fastas_to_kmers(), 10,  mlst_profile, 50, None, None, max_kmers = 1)
+#		fastq = Fastq(logger, os.path.join(data_dir,'NCTC11150.fastq.gz'), kmer , fastas.get_fastas_to_kmers(), 10,  mlst_profile, 50, None, None)
 #		self.assertTrue(fastq.read_filter_and_map())
 #
 #		pr.disable()
