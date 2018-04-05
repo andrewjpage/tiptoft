@@ -136,6 +136,34 @@ __min_perc_coverage__: Only report rep/inc sequences above this percentage cover
 
 __min_kmers_for_onex_pass__: The number of k-mers that must be present in the read for the initial onex pass of the database to be considered for further analysis. This speeds up the analysis quite a bit, but there is the risk that some reads may be missed, particularly if they have partial rep/inc sequences.
 
+# Output
+The output is tab delmited and printed to STDOUT by default. You can optionally print it to a file using the '-o' parameter. If you would like to see intermediate results, you can tell it to print every X reads with the '-p' parameter, separated by '****'.   An example of the output is:
+
+```
+GENE	COMPLETENESS	%COVERAGE	ACCESSION	DATABASE	PRODUCT
+rep7.1	Full	100	AB037671	plasmidfinder	rep7.1_repC(Cassette)_AB037671
+rep7.5	Partial	99	AF378372	plasmidfinder	rep7.5_CDS1(pKC5b)_AF378372
+rep7.6	Partial	94	SAU38656	plasmidfinder	rep7.6_ORF(pKH1)_SAU38656
+rep7.9	Full	100	NC007791	plasmidfinder	rep7.9_CDS3(pUSA02)_NC007791
+rep7.10	Partial	91	NC_010284.1	plasmidfinder	rep7.10_repC(pKH17)_NC_010284.1
+rep7.12	Partial	93	GQ900417.1	plasmidfinder	rep7.12_rep(SAP060B)_GQ900417.1
+rep7.17	Full	100	AM990993.1	plasmidfinder	rep7.17_repC(pS0385-1)_AM990993.1
+rep20.11	Full	100	AP003367	plasmidfinder	rep20.11_repA(VRSAp)_AP003367
+repUS14.	Full	100	AP003367	plasmidfinder	repUS14._repA(VRSAp)_AP003367
+```
+
+__GENE__: The first column is the first part of the product name. 
+
+__COMPLETENESS__: If all of the k-mers in the gene are found in the reads, the completeness is noted as 'Full', otherwise if there are some k-mers missing, it is noted as 'Partial'. 
+
+__%COVERAGE__: The percentage coverage is the number of underlying k-mers in the gene where at least 1 matching k-mer has been found in the reads. 100 indicates that every k-mer in the gene is covered. Low coverage results are not shown (controlled by the --min_perc_coverage parameter).
+
+__ACCESSION__: This is the accession number from where the typing sequence originates. You can look this up at NCBI or EBI.
+
+__DATABASE__: This is where the data has come from, which is currently always plasmidfinder.
+
+__PRODUCT__: This is the full product of the gene as found in the database.
+
 # Resource usage
 For an 800Mbyte FASTQ file (unzipped) of long reads from a Oxford Nanopore MinION containing Salmonella required 80MB of RAM and took under 1 minute.
 
