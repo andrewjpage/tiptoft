@@ -218,7 +218,7 @@ class Fastq:
 				found_alleles = True
 				if self.output_file:
 					with open(self.output_file, 'a+') as output_fh:
-						output_fh.write(g + "\n")			
+						output_fh.write(str(g) + "\n")			
 				else:
 					print(g)
 				
@@ -226,7 +226,7 @@ class Fastq:
 			print("****")
 			
 	def print_out_header(self):
-		header = "GENEtCOMPLETENESS\t%COVERAGE\tACCESSION\tDATABASE\tPRODUCT"
+		header = "GENE\tCOMPLETENESS\t%COVERAGE\tACCESSION\tDATABASE\tPRODUCT"
 		if self.output_file:
 			with open(self.output_file, 'a+') as output_fh:
 				output_fh.write(header + "\n")			

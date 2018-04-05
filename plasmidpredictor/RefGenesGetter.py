@@ -35,12 +35,13 @@ class RefGenesGetter:
 		except:
 			raise Error('Error mkdir/chdir ' + tmpdir)
 
-		zipfile = 'plasmidfinder.zip'
-		cmd = 'curl -X POST --data "folder=plasmidfinder&filename=plasmidfinder.zip" -o ' + zipfile + ' https://cge.cbs.dtu.dk/cge/download_data.php'
+		cmd = 'curl -o enterobacteriaceae.fsa https://bitbucket.org/genomicepidemiology/plasmidfinder_db/raw/master/enterobacteriaceae.fsa'
 		print('Downloading data with:', cmd, sep='\n')
-
 		subprocess.check_call(cmd, shell=True)
-		subprocess.check_call('unzip ' + zipfile, shell=True)
+		
+		cmd = 'curl -o gram_positive.fsa https://bitbucket.org/genomicepidemiology/plasmidfinder_db/raw/master/gram_positive.fsa'
+		print('Downloading data with:', cmd, sep='\n')
+		subprocess.check_call(cmd, shell=True)
 
 		print('Combining downloaded fasta files...')
 		fout_fa = pyfastaq.utils.open_file_write(final_fasta)
