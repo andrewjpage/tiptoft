@@ -22,7 +22,6 @@ rep5.6_rep(pRJ9)_AF447813.1	0	0	.	.	Original name was rep5_6_rep(pRJ9)_AF447813.
 rep5.7_rep(pJE1)_AF051916.1	0	0	.	.	Original name was rep5_7_rep(pJE1)_AF051916.1
 rep6.1_repA(p703/5)_AF109375	0	0	.	.	Original name was rep6_1_repA(p703/5)_AF109375
 rep7.1_repC(Cassette)_AB037671	0	0	.	.	Original name was rep7_1_repC(Cassette)_AB037671
-rep7.2_CDS2(pC221)_NC002129	0	0	.	.	Original name was rep7_2_CDS2(pC221)_NC002129
 rep7.3_CDS1(pCW7)_J03323	0	0	.	.	Original name was rep7_3_CDS1(pCW7)_J03323
 rep7.4_repD(pK214)_NC009751	0	0	.	.	Original name was rep7_4_repD(pK214)_NC009751
 rep7.5_CDS1(pKC5b)_AF378372	0	0	.	.	Original name was rep7_5_CDS1(pKC5b)_AF378372
@@ -47,7 +46,6 @@ rep9.1_repA(pAD1)_L01794	0	0	.	.	Original name was rep9_1_repA(pAD1)_L01794
 rep9.2_prgW(pCF10)_AY855841	0	0	.	.	Original name was rep9_2_prgW(pCF10)_AY855841
 rep9.3_repA(pPD1)_D78016	0	0	.	.	Original name was rep9_3_repA(pPD1)_D78016
 rep9.4_repA2(pTEF2)_AE016831	0	0	.	.	Original name was rep9_4_repA2(pTEF2)_AE016831
-rep10.1_repL(pE5)_M17990	0	0	.	.	Original name was rep10_1_repL(pE5)_M17990
 rep10.2_CDS1(pIM13)_M13761	0	0	.	.	Original name was rep10_2_CDS1(pIM13)_M13761
 rep10.3_ORF(pNE131)_NC001390	0	0	.	.	Original name was rep10_3_ORF(pNE131)_NC001390
 rep10.4_repL(pDLK1)_GU562624.1	0	0	.	.	Original name was rep10_4_repL(pDLK1)_GU562624.1
@@ -99,7 +97,6 @@ rep20.7_repA(SAP074A)_GQ900426.1	0	0	.	.	Original name was rep20_7_repA(SAP074A)
 rep20.8_repA(SAP063A)_GQ900418.1	0	0	.	.	Original name was rep20_8_repA(SAP063A)_GQ900418.1
 rep20.9_repA(SAP055A)_GQ900414.1	0	0	.	.	Original name was rep20_9_repA(SAP055A)_GQ900414.1
 rep20.10_repA(SAP057A)_NC_013334.1	0	0	.	.	Original name was rep20_10_repA(SAP057A)_NC_013334.1
-rep20.11_repA(VRSAp)_AP003367	0	0	.	.	Original name was rep20_11_repA(VRSAp)_AP003367
 rep21.1_rep(pWBG754)_GQ900396.1	0	0	.	.	Original name was rep21_1_rep(pWBG754)_GQ900396.1
 rep21.2_rep(pNVH01)_AJ512814.1	0	0	.	.	Original name was rep21_2_rep(pNVH01)_AJ512814.1
 rep21.3_pS0385-3_AM990995.1	0	0	.	.	Original name was rep21_3_pS0385-3_AM990995.1
@@ -109,7 +106,6 @@ rep21.6_rep(pBMSa1)_AY541446.1	0	0	.	.	Original name was rep21_6_rep(pBMSa1)_AY5
 rep21.7_rep(pWBG760)_GQ900473.1	0	0	.	.	Original name was rep21_7_rep(pWBG760)_GQ900473.1
 rep21.8_rep(SAP071A)_GQ900485.1	0	0	.	.	Original name was rep21_8_rep(SAP071A)_GQ900485.1
 rep21.9_rep(pKH12)_EU168704.2	0	0	.	.	Original name was rep21_9_rep(pKH12)_EU168704.2
-rep21.10_rep(pKH14)_EU164802.1	0	0	.	.	Original name was rep21_10_rep(pKH14)_EU164802.1
 rep21.11_rep(pSA1308)_AB254848.1	0	0	.	.	Original name was rep21_11_rep(pSA1308)_AB254848.1
 rep21.12_rep(pKH3)_AF151117.1	0	0	.	.	Original name was rep21_12_rep(pKH3)_AF151117.1
 rep21.13_rep(SAP101A)_GQ900495.1	0	0	.	.	Original name was rep21_13_rep(SAP101A)_GQ900495.1
@@ -143,15 +139,15 @@ repUS20._rep(pAVX)_CP001784.1	0	0	.	.	Original name was repUS20__rep(pAVX)_CP001
 repUS21._rep(pWBG764)_GQ900468.1	0	0	.	.	Original name was repUS21__rep(pWBG764)_GQ900468.1
 repUS22._rep(SAP015B)_GQ900502.1	0	0	.	.	Original name was repUS22__rep(SAP015B)_GQ900502.1
 repUS23._repA(SAP099B)_GQ900449.1	0	0	.	.	Original name was repUS23__repA(SAP099B)_GQ900449.1
-TrfA.1__CP11611	0	0	.	.	Original name was TrfA_1__CP11611
+RepA.1_pKPC-CAV1321_CP011611	0	0	.	.	Original name was RepA_1_pKPC-CAV1321_CP011611
 IncHI1B(R27).1_R27_AF250878	0	0	.	.	Original name was IncHI1B(R27)_1_R27_AF250878
 IncHI1B(CIT).1_pNDM-CIT_JX182975	0	0	.	.	Original name was IncHI1B(CIT)_1_pNDM-CIT_JX182975
 IncHI2.1__BX664015	0	0	.	.	Original name was IncHI2_1__BX664015
 IncI1.1_Alpha_AP005147	0	0	.	.	Original name was IncI1_1_Alpha_AP005147
 IncB/O/K/Z.1__CU928147	0	0	.	.	Original name was IncB/O/K/Z_1__CU928147
-IncB/O/K/Z.3_GQ259888	0	0	.	.	Original name was IncB/O/K/Z_3_GQ259888
-IncB/O/K/Z.2_GU256641	0	0	.	.	Original name was IncB/O/K/Z_2_GU256641
-IncB/O/K/Z.4_FN868832	0	0	.	.	Original name was IncB/O/K/Z_4_FN868832
+IncB/O/K/Z.3__GQ259888	0	0	.	.	Original name was IncB/O/K/Z_3__GQ259888
+IncB/O/K/Z.2__GU256641	0	0	.	.	Original name was IncB/O/K/Z_2__GU256641
+IncB/O/K/Z.4__FN868832	0	0	.	.	Original name was IncB/O/K/Z_4__FN868832
 IncL/M(pOXA-48).1_pOXA-48_JN626286	0	0	.	.	Original name was IncL/M(pOXA-48)_1_pOXA-48_JN626286
 IncL/M.1__AF550415	0	0	.	.	Original name was IncL/M_1__AF550415
 IncI2.1_Delta_AP002527	0	0	.	.	Original name was IncI2_1_Delta_AP002527
@@ -159,7 +155,8 @@ IncN.1__AY046276	0	0	.	.	Original name was IncN_1__AY046276
 IncFIA.1__AP001918	0	0	.	.	Original name was IncFIA_1__AP001918
 IncW.1__EF633507	0	0	.	.	Original name was IncW_1__EF633507
 IncA/C2.1__JN157804	0	0	.	.	Original name was IncA/C2_1__JN157804
-P1.alpha_BN000925	0	0	.	.	Original name was P1_alpha_BN000925
+IncP1.1__BN000925	0	0	.	.	Original name was IncP1_1__BN000925
+IncP1.3__KX377410	0	0	.	.	Original name was IncP1_3__KX377410
 IncT.1__AP004237	0	0	.	.	Original name was IncT_1__AP004237
 IncR.1__DQ449578	0	0	.	.	Original name was IncR_1__DQ449578
 IncFII(S).1__CP000858	0	0	.	.	Original name was IncFII(S)_1__CP000858
@@ -171,7 +168,7 @@ IncY.1__K02380	0	0	.	.	Original name was IncY_1__K02380
 IncFIB(AP001918).1__AP001918	0	0	.	.	Original name was IncFIB(AP001918)_1__AP001918
 IncFII.1__AY458016	0	0	.	.	Original name was IncFII_1__AY458016
 IncFIC(FII).1__AP001918	0	0	.	.	Original name was IncFIC(FII)_1__AP001918
-IncFII(pKPX1).AP012055	0	0	.	.	Original name was IncFII(pKPX1)_AP012055
+IncFII(pKPX1)._AP012055	0	0	.	.	Original name was IncFII(pKPX1)__AP012055
 IncFII(Yp).1_Yersenia_CP000670	0	0	.	.	Original name was IncFII(Yp)_1_Yersenia_CP000670
 IncHI1A.1__AF250878	0	0	.	.	Original name was IncHI1A_1__AF250878
 IncHI2A.1__BX664015	0	0	.	.	Original name was IncHI2A_1__BX664015
@@ -190,11 +187,15 @@ IncFIB(pQil).1_pQil_JN233705	0	0	.	.	Original name was IncFIB(pQil)_1_pQil_JN233
 IncFIB(K).1_Kpn3_JN233704	0	0	.	.	Original name was IncFIB(K)_1_Kpn3_JN233704
 IncFII(Y).1_ps_CP001049	0	0	.	.	Original name was IncFII(Y)_1_ps_CP001049
 IncL/M(pMU407).1_pMU407_U27345	0	0	.	.	Original name was IncL/M(pMU407)_1_pMU407_U27345
-IncP(Beta).1_Beta_U67194	0	0	.	.	Original name was IncP(Beta)_1_Beta_U67194
-IncP(6).1__JF785550	0	0	.	.	Original name was IncP(6)_1__JF785550
+IncP1.2__U67194	0	0	.	.	Original name was IncP1_2__U67194
+IncP6.1__JF785550	0	0	.	.	Original name was IncP6_1__JF785550
 IncA/C.1__FJ705807	0	0	.	.	Original name was IncA/C_1__FJ705807
-IncX5.1__NC_015054	0	0	.	.	Original name was IncX5_1__NC_015054
-IncX6.1__AM942760	0	0	.	.	Original name was IncX6_1__AM942760
+IncX5.1__JX193302	0	0	.	.	Original name was IncX5_1__JX193302
+IncX5.2_MF062700.1	0	0	.	.	Original name was IncX5_2_MF062700.1
+IncX6.1__KU302800	0	0	.	.	Original name was IncX6_1__KU302800
+IncX7.1__NC_015054	0	0	.	.	Original name was IncX7_1__NC_015054
+IncX8.1__AM942760	0	0	.	.	Original name was IncX8_1__AM942760
+IncX9.1__NC_010257	0	0	.	.	Original name was IncX9_1__NC_010257
 p0111.1__AP010962	0	0	.	.	Original name was p0111_1__AP010962
 IncFIB(pECLA).1_pECLA_CP001919	0	0	.	.	Original name was IncFIB(pECLA)_1_pECLA_CP001919
 IncFIB(pLF82).1_pLF82_CU638872	0	0	.	.	Original name was IncFIB(pLF82)_1_pLF82_CU638872
@@ -222,6 +223,7 @@ IncFII(p14).1_p14_JQ418538	0	0	.	.	Original name was IncFII(p14)_1_p14_JQ418538
 IncFII(29).1_pUTI89_CP003035	0	0	.	.	Original name was IncFII(29)_1_pUTI89_CP003035
 IncFII.1_pSFO_AF401292	0	0	.	.	Original name was IncFII_1_pSFO_AF401292
 IncFII.1_pKP91_CP000966	0	0	.	.	Original name was IncFII_1_pKP91_CP000966
+IncFII(pAMA1167-NDM-5).1_pAMA1167-NDM-5_CP024805.1	0	0	.	.	Original name was IncFII(pAMA1167-NDM-5)_1_pAMA1167-NDM-5_CP024805.1
 IncX4.2__FN543504	0	0	.	.	Original name was IncX4_2__FN543504
 pADAP.1__AF135182	0	0	.	.	Original name was pADAP_1__AF135182
 pXuzhou21.1__CP001927	0	0	.	.	Original name was pXuzhou21_1__CP001927
@@ -236,7 +238,7 @@ pEC4115.1__NC_011351	0	0	.	.	Original name was pEC4115_1__NC_011351
 pJARS36.1__NC_015068	0	0	.	.	Original name was pJARS36_1__NC_015068
 pSM22.1__NC_015972	0	0	.	.	Original name was pSM22_1__NC_015972
 IncQ2.1__FJ696404	0	0	.	.	Original name was IncQ2_1__FJ696404
-IncQ1.1__HE654726	0	0	.	.	Original name was IncQ1_1__HE654726
+IncQ1.1__M28829.1	0	0	.	.	Original name was IncQ1_1__M28829.1
 IncX1.3__CP001123	0	0	.	.	Original name was IncX1_3__CP001123
 IncX1.2__CP003417	0	0	.	.	Original name was IncX1_2__CP003417
 IncX1.4__JN935898	0	0	.	.	Original name was IncX1_4__JN935898
@@ -256,7 +258,6 @@ Col(YC).1__NC_002144	0	0	.	.	Original name was Col(YC)_1__NC_002144
 Col(pWES).1__DQ268764	0	0	.	.	Original name was Col(pWES)_1__DQ268764
 Col(Ye4449).1__FJ696405	0	0	.	.	Original name was Col(Ye4449)_1__FJ696405
 Col(YF27601).1__JF937655	0	0	.	.	Original name was Col(YF27601)_1__JF937655
-Col(BS512).1__NC_010656.2	0	0	.	.	Original name was Col(BS512)_1__NC_010656
 Col(MP18).1__NC_013652	0	0	.	.	Original name was Col(MP18)_1__NC_013652
 Col(KPHS6).1__NC_016841	0	0	.	.	Original name was Col(KPHS6)_1__NC_016841
 Col(VCM04).1__HM231165	0	0	.	.	Original name was Col(VCM04)_1__HM231165
@@ -265,3 +266,7 @@ IncI2.1__KP347127	0	0	.	.	Original name was IncI2_1__KP347127
 repA.1_pKPC-2_CP013325	0	0	.	.	Original name was repA_1_pKPC-2_CP013325
 repA.2_pKPC-2_JX397875	0	0	.	.	Original name was repA_2_pKPC-2_JX397875
 Rep.1_pKPC-2_CP011573	0	0	.	.	Original name was Rep_1_pKPC-2_CP011573
+FII(pBK30683).1__KF954760	0	0	.	.	Original name was FII(pBK30683)_1__KF954760
+FIA(pBK30683).1__KF954760	0	0	.	.	Original name was FIA(pBK30683)_1__KF954760
+Col440I.1__CP023920.1	0	0	.	.	Original name was Col440I_1__CP023920.1
+Col440II.1__CP023921.1	0	0	.	.	Original name was Col440II_1__CP023921.1
