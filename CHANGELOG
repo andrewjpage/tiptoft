@@ -1,0 +1,12 @@
+v0.0.2 - 5/04/18
+------
+Output full reads with plasmid gene.
+Output to a file actually works.
+Use bundled database if none provided.
+DB downloader needs a prefix to work.
+Grouping of input options.
+Documentation
+
+v0.0.1 - 3/04/18
+------
+Initial version.

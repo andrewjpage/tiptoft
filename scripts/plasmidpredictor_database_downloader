@@ -17,10 +17,10 @@ except pkg_resources.DistributionNotFound:
 
 parser = argparse.ArgumentParser(
 	description = 'Download PlasmidFinder database',
-	usage = 'plasmidpredictor_database_downloader [options]',
+	usage = 'plasmidpredictor_database_downloader [options] output_prefix',
 	formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('--output_prefix',	 '-o', help='Output directory', default = 'plasmid_files' )
+parser.add_argument('output_prefix', help='Output prefix')
 parser.add_argument('--verbose', '-v', action='store_true', help='Turn on debugging')
 parser.add_argument('--version', action='version', version=str(version))
 

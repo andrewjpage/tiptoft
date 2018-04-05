@@ -6,11 +6,13 @@ class Gene:
 		self.kmers_without_coverage = kmers_without_coverage
 		
 	def __str__(self):
-		s = self.name
-		if not self.is_full_coverage():
-			s += '*'
-		s += "\t"+str(self.percentage_coverage())
-		return s
+		return "\t".join((self.short_name(), self.completeness(), str(self.percentage_coverage()), self.accession(),'plasmidfinder', self.name))
+		
+	def completeness(self):
+		if self.is_full_coverage():
+			return "Full"
+		else:
+			return "Partial"
 		
 	def is_full_coverage(self):
 		if self.kmers_without_coverage  == 0:
@@ -25,3 +27,20 @@ class Gene:
 		else:
 			return 0
 			
+	def short_name(self):
+		regex = r"^([^_]+)_"
+		
+		m = re.search(regex, self.name)
+		if m and m.group:
+			return str(m.group(1))
+		else:
+			return ''
+			
+	def accession(self):
+		regex = r"^([^_]+)_([^_]*)_(.+)$"
+		
+		m = re.search(regex, self.name)
+		if m and m.group:
+			return str(m.group(3))
+		else:
+			return ''

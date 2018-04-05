@@ -16,23 +16,29 @@ except pkg_resources.DistributionNotFound:
 	version = 'x.y.z'
 
 parser = argparse.ArgumentParser(
-	description = 'plasmid incompatibility group prediction from uncorrected long reads',
-	usage = 'plasmidpredictor [options] plasmid_data.fa input.fastq', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument('plasmid_data', help='FASTA file containing plasmid data from downloader script', type=InputTypes.is_plasmid_file_valid )
+	description = 'Plasmid replicon and incompatibility group prediction from uncorrected long reads',
+	usage = 'plasmidpredictor [options] input.fastq', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
 parser.add_argument('input_fastq', help='Input FASTQ file (optionally gzipped)', type=InputTypes.is_fastq_file_valid)
 
-parser.add_argument('--filtered_reads_file', '-f', help='Filename to save matching reads to')
-parser.add_argument('--output_file',	 '-o', help='Output file [STDOUT]')
-parser.add_argument('--max_gap',  help='Maximum gap for blocks to be contigous, measured in multiples of the k-mer size', type=int, default=3)
-parser.add_argument('--margin',  help='Flanking region around a block to use for mapping', type=int, default=10)
-parser.add_argument('--min_block_size',  help='Minimum block size in bases', type=int, default=130)
-parser.add_argument('--min_fasta_hits',	 '-m', help='Minimum No. of kmers matching a read', type=int, default = 10)
-parser.add_argument('--min_perc_coverage',	 '-c', help='Minimum percentage coverage of typing sequence to report', type=int, default = 85)
-parser.add_argument('--min_kmers_for_onex_pass', help='Minimum No. of kmers matching a read in 1st pass', type=int, default = 10)
-parser.add_argument('--print_interval',	 '-p', help='Print results every this number of reads', type=int, default = 1000)
-parser.add_argument('--kmer',	 '-k', help='k-mer size', type=InputTypes.is_kmer_valid, default = 13)
-parser.add_argument('--verbose', '-v', action='store_true', help='Turn on debugging [%(default)s]', default = False)
-parser.add_argument('--version', action='version', version=str(version))
+inputs = parser.add_argument_group('Optional input arguments')
+inputs.add_argument('--plasmid_data', '-d', help='FASTA file containing plasmid data from downloader script, defaults to bundled database', type=InputTypes.is_plasmid_file_valid )
+inputs.add_argument('--kmer',	 '-k', help='k-mer size', type=InputTypes.is_kmer_valid, default = 13)
+
+outputs = parser.add_argument_group('Optional output arguments')
+outputs.add_argument('--filtered_reads_file', '-f', help='Filename to save matching reads to')
+outputs.add_argument('--output_file',	 '-o', help='Output file [STDOUT]')
+outputs.add_argument('--print_interval',	 '-p', help='Print results every this number of reads', type=int)
+outputs.add_argument('--verbose', '-v', action='store_true', help='Turn on debugging [%(default)s]', default = False)
+outputs.add_argument('--version', action='version', version=str(version))
+
+advanced = parser.add_argument_group('Optional advanced input arguments')
+advanced.add_argument('--max_gap',  help='Maximum gap for blocks to be contigous, measured in multiples of the k-mer size', type=int, default=3)
+advanced.add_argument('--margin',  help='Flanking region around a block to use for mapping', type=int, default=10)
+advanced.add_argument('--min_block_size',  help='Minimum block size in bases', type=int, default=130)
+advanced.add_argument('--min_fasta_hits',	 '-m', help='Minimum No. of kmers matching a read', type=int, default = 10)
+advanced.add_argument('--min_perc_coverage',	 '-c', help='Minimum percentage coverage of typing sequence to report', type=int, default = 85)
+advanced.add_argument('--min_kmers_for_onex_pass', help='Minimum No. of kmers matching a read in 1st pass', type=int, default = 10)
 
 options = parser.parse_args()
 

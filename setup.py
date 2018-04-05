@@ -27,6 +27,7 @@ setup(
            'biopython >= 1.68',
 		   'pyfastaq >= 3.12.0'
        ],
+	package_data={'plasmidpredictor': ['data/*']},
     license='GPLv3',
     classifiers=[
         'Development Status :: 4 - Beta',

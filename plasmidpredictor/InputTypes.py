@@ -18,6 +18,6 @@ class InputTypes:
 	def is_kmer_valid(value_str):
 		if value_str.isdigit():
 			kmer = int(value_str)
-			if  kmer >= 5 and kmer <= 31:
+			if  kmer >= 7 and kmer <= 31:
 				return kmer
-		raise argparse.ArgumentTypeError("Invalid Kmer value, it must be an integer between 5 and 31.")
+		raise argparse.ArgumentTypeError("Invalid Kmer value, it must be an integer between 7 and 31. If you need values outside of this range, your probably trying to use this software for something it was never designed to do.")

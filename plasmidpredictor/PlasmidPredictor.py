@@ -2,6 +2,7 @@ import logging
 import os
 import sys
 import time
+import pkg_resources
 from plasmidpredictor.Fasta import Fasta
 from plasmidpredictor.Fastq import Fastq
 
@@ -22,6 +23,9 @@ class PlasmidPredictor:
 		self.start_time                 = int(time.time())
 		self.min_kmers_for_onex_pass    = options.min_kmers_for_onex_pass
 		self.min_perc_coverage         = options.min_perc_coverage
+		
+		if self.plasmid_data is None:
+			self.plasmid_data = str(pkg_resources.resource_filename(__name__, 'data/plasmid_data.fa'))
 		
 		if self.output_file and os.path.exists(self.output_file):
 			self.logger.error("The output file already exists, please choose another filename: "+ self.output_file)

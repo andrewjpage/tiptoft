@@ -37,12 +37,14 @@ class Fastq:
 		r= 0
 		
 		self.logger.info("Reading in FASTQ file")
+		self.print_out_header()
 		fh = self.open_file_read()
 		read = Read()
 
 		while read.get_next_from_file(fh):
 			counter += 1
-			if counter % self.print_interval == 0:
+			
+			if self.print_interval is not None and counter % self.print_interval == 0:
 				self.full_gene_coverage(counter)
 
 			if self.map_read(read):
@@ -124,13 +126,13 @@ class Fastq:
 		is_read_matching = self.apply_kmers_to_genes(self.fasta_obj,block_kmers, candidate_gene_names)
 		
 		if self.filtered_reads_file:
-			self.append_subread_to_fastq_file(read, block_start, block_end)
+			self.append_read_to_fastq_file(read)
 				
 		return is_read_matching
 			
-	def append_subread_to_fastq_file(self, read, block_start, block_end):
+	def append_read_to_fastq_file(self, read, block_start, block_end):
 			with open(self.filtered_reads_file, 'a+') as output_fh:
-				output_fh.write(str(read.subsequence(block_start, block_end)))
+				output_fh.write(str(read))
 			
 	def create_kmers_for_block(self, block_start, block_end, read_kmer_hits):
 		if block_end ==  0:
@@ -209,15 +211,27 @@ class Fastq:
 			if g.percentage_coverage() == 100 and g.name not in self.genes_with_100_percent:
 				self.genes_with_100_percent[g.name] = 1
 		
-	def print_out_alleles(self,alleles):
+	def print_out_alleles(self, alleles):
 		found_alleles = False
 		for g in alleles:
 			if g.percentage_coverage() >= self.min_perc_coverage:
-				print(g)
 				found_alleles = True
+				if self.output_file:
+					with open(self.output_file, 'a+') as output_fh:
+						output_fh.write(g + "\n")			
+				else:
+					print(g)
 				
-		if found_alleles:
+		if found_alleles and self.print_interval is not None:
 			print("****")
+			
+	def print_out_header(self):
+		header = "GENEtCOMPLETENESS\t%COVERAGE\tACCESSION\tDATABASE\tPRODUCT"
+		if self.output_file:
+			with open(self.output_file, 'a+') as output_fh:
+				output_fh.write(header + "\n")			
+		else:
+			print(header)
 		
 	# Derived from https://github.com/sanger-pathogens/Fastaq
 	# Author: Martin Hunt	
