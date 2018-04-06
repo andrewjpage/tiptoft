@@ -16,9 +16,7 @@ class Kmers:
 		previous_base = ''
 		compressed_sequence = ''
 		for base in sequence:
-			if base == previous_base:
-				continue
-			else:
+			if base != previous_base:plasmidpredictor/Kmers.py
 				previous_base = base
 				compressed_sequence += base
 			
