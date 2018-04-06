@@ -2,7 +2,9 @@ import os
 import shutil
 import sys
 import glob
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extension
+
+from Cython.Build import cythonize
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
@@ -10,6 +12,8 @@ def read(fname):
 version = 'x.y.z'
 if os.path.exists('VERSION'):
   version = open('VERSION').read().strip()
+
+extensions = [Extension("*", ["*.pyx"])]
 
 setup(
     name='plasmidpredictor',
@@ -25,8 +29,10 @@ setup(
     tests_require=['nose >= 1.3'],
     install_requires=[
            'biopython >= 1.68',
-		   'pyfastaq >= 3.12.0'
+		   'pyfastaq >= 3.12.0',
+		   'cython'
        ],
+	ext_modules = cythonize(extensions),
 	package_data={'plasmidpredictor': ['data/*']},
     license='GPLv3',
     classifiers=[

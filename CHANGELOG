@@ -2,6 +2,7 @@ v0.0.3 - 6/04/18
 ------
 Homopolymer compression of k-mers (TS)
 Filter out k-mers occuring more than 10 times instead of 2
+Add Cython for Homoploymer compression speedup
 
 v0.0.2 - 5/04/18
 ------

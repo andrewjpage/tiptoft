@@ -1,27 +1,17 @@
 '''Given a string of nucleotides and k, return all kmers'''
-import re
 
-class KmerHit():
-	def __init__(self,count, coord):
-		self.count = 0
-		self.coordinates = [coord]
+# The homopolymer compression is quite intensive so run it with cython
+import pyximport
+pyximport.install()
+
+from homopolymer_compression import homopolymer_compression_of_sequence
 
 class Kmers:
 	def __init__(self, sequence, k, homopolyer_compression):
-		self.sequence = self.homopolymer_compression_of_sequence(sequence) if homopolyer_compression else sequence
+		self.sequence = homopolymer_compression_of_sequence(sequence) if homopolyer_compression else sequence
 		self.k = k
 		self.end = len(self.sequence) - self.k + 1
 		
-	def homopolymer_compression_of_sequence(self,sequence):
-		previous_base = ''
-		compressed_sequence = ''
-		for base in sequence:
-			if base != previous_base:plasmidpredictor/Kmers.py
-				previous_base = base
-				compressed_sequence += base
-			
-		return compressed_sequence
-	
 	def get_all_kmers_counter(self, max_kmer_count = 10):
 		kmers = self.get_all_kmers_filtered(max_kmer_count)
 		return { x:0 for x in kmers.keys()}
@@ -36,15 +26,13 @@ class Kmers:
 		
 		for i,k in enumerate(kmer_sequences):
 		    if k in kmers:
-		        kmers[k].count += 1
-		        kmers[k].coordinates.append(i)
+		        kmers[k].append(i)
 		    else:
-		        kmers[k] = KmerHit(1,i)
+		        kmers[k] = [i]
 		     
-		filtered_kmers = {k:v for k,v in kmers.items() if int(v.count) <= max_kmer_count }
+		filtered_kmers = {k:v for k,v in kmers.items() if len(v) <= max_kmer_count }
 		return filtered_kmers
 	     
-	def get_one_x_coverage_of_kmers(self):
-		kmers = [ self.sequence[i:i+self.k] for i in range(0,self.end, self.k)]
-		return kmers
+	def get_one_x_coverage_of_kmers(self, sequence, k,end):
+		return [ sequence[i:i+k] for i in range(0,end, k)]
 		

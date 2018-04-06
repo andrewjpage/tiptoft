@@ -100,7 +100,7 @@ class Fastq:
 		hit_kmers = {}
 		for read_kmer, read_kmer_hit in read_kmers.items():
 			if read_kmer in fasta_kmers:
-				for coordinate in read_kmer_hit.coordinates:
+				for coordinate in read_kmer_hit:
 					hit_counter += 1
 					sequence_hits[int(coordinate/self.k)] += 1
 					hit_kmers[read_kmer]=read_kmer_hit
@@ -139,12 +139,13 @@ class Fastq:
 	def create_kmers_for_block(self, block_start, block_end, read_kmer_hits):
 		if block_end ==  0:
 			return {}
-		
+		def get_one_x_coverage_of_kmers(self, sequence, k,end):
+			return [ sequence[i:i+k] for i in range(0,end, k)]
 		block_kmers = {}
 			
 		for read_kmer, read_kmer_hit in read_kmer_hits.items():
 			found_match_in_block = False
-			for coordinate in read_kmer_hit.coordinates:
+			for coordinate in read_kmer_hit:
 				if coordinate >= block_start and coordinate <= block_end:
 					found_match_in_block = True
 					continue
