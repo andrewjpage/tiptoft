@@ -13,8 +13,15 @@ class Kmers:
 		self.end = len(self.sequence) - self.k + 1
 		
 	def homopolymer_compression_of_sequence(self,sequence):
-		p = re.compile(r'(.)\1*')
-		compressed_sequence = p.sub(r'\1', sequence)
+		previous_base = ''
+		compressed_sequence = ''
+		for base in sequence:
+			if base == previous_base:
+				continue
+			else:
+				previous_base = base
+				compressed_sequence += base
+			
 		return compressed_sequence
 	
 	def get_all_kmers_counter(self, max_kmer_count = 10):

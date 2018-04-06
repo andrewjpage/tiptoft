@@ -44,17 +44,17 @@ advanced.add_argument('--min_kmers_for_onex_pass', help='Minimum No. of kmers ma
 
 options = parser.parse_args()
 
-#import cProfile, pstats, io
-#
-#pr = cProfile.Profile()
-#pr.enable()   
+import cProfile, pstats, io
+
+pr = cProfile.Profile()
+pr.enable()   
 
 plasmidpredictor = PlasmidPredictor(options)
 plasmidpredictor.run()
 
-#pr.disable()
-#s = io.StringIO()
-#sortby = 'cumulative'
-#ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
-#ps.print_stats()
-#print(s.getvalue())
+pr.disable()
+s = io.StringIO()
+sortby = 'cumulative'
+ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+ps.print_stats()
+print(s.getvalue())
