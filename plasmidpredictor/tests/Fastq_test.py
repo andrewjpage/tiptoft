@@ -15,27 +15,27 @@ class TestFastq(unittest.TestCase):
 	def test_four_kmers(self):
 		logger = logging.getLogger(__name__)
 		logger.setLevel(logging.ERROR)
-		fasta = Fasta(logger, os.path.join(data_dir,'plasmid_data.fa'),4)
+		fasta = Fasta(logger, os.path.join(data_dir,'plasmid_data.fa'),4, True)
 		
-		fastq = Fastq(logger, os.path.join(data_dir,'query.fastq'), 4 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta)
+		fastq = Fastq(logger, os.path.join(data_dir,'query.fastq'), 4 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta, True)
 				
 		self.assertTrue(fastq.read_filter_and_map())
 		
 	def test_with_nonmatching_read(self):
 		logger = logging.getLogger(__name__)
 		logger.setLevel(logging.ERROR)
-		fasta = Fasta(logger, os.path.join(data_dir,'plasmid_data.fa'),4)
+		fasta = Fasta(logger, os.path.join(data_dir,'plasmid_data.fa'),4, True)
 		
-		fastq = Fastq(logger, os.path.join(data_dir,'query.fastq'), 4 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta)
+		fastq = Fastq(logger, os.path.join(data_dir,'query.fastq'), 4 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta, True)
 		
 		self.assertFalse(fastq.does_read_contain_quick_pass_kmers("AAAAAAAAAAAAAAAA"))
 		
 	def test_with_matching_read(self):
 		logger = logging.getLogger(__name__)
 		logger.setLevel(logging.ERROR)
-		fasta = Fasta(logger, os.path.join(data_dir,'plasmid_data.fa'),11)
+		fasta = Fasta(logger, os.path.join(data_dir,'plasmid_data.fa'),11, True)
 	
-		fastq = Fastq(logger, os.path.join(data_dir,'query.fastq'), 11 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta)
+		fastq = Fastq(logger, os.path.join(data_dir,'query.fastq'), 11 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta, True)
 	
 		self.assertTrue(fastq.does_read_contain_quick_pass_kmers("ATCAATACCTTCTTTATTGATTTTGATATTCACACGGCAAAAGAAACTATTTCAGCAAGCGATATTTTAACAACCGCTATTGATTTAGGTTTTATGCCTACTATGATTATCAAATCTGATAAAGGTTATCAAGCATATTTTGTTTTAGAAACGCCAGTCTATGTGACTTCAAAATCAGAATTTAAATCTGTCAAAGCAGCCAAAATAATTTCGCAAAATATCCGAGAATATTTTGGAAAGTCTTTGCCAGTTGATCTAACGTGTAATCATTTTGGTATTGCTCGCATACCAAGAACGGACAATGTAGAATTTTTTGATCCTAATTACCGTTATTCTTTCAAAGAATGGCAAGATTGGTCTTTCAAACAAACAGATAATAAGGGCTTTACTCGTTCAAGTCTAACGGTTTTAAGCGGTACAGAAGGCAAAAAACAAGTAGATGAACCCTGGTTTAATCTCTTATTGCACGAAACGAAATTTTCAGGAGAAAAGGGTTTAATAGGGCGTAATAACGTCATGTTTACCCTCTCTTTAGCCTACTTTAGTTCAGGCTATTCAATCGAAACGTGCGAATATAATATGTTTGAGTTTAATAATCGATTAGATCAACCCTTAGAAGAAAAAGAAGTAATCAAAATTGTTAGAAGTGCCTATTCAGAAAACTATCAAGGGGCTAATAGGGAATACATTACCATTCTTTGCAAAGCTTGGGTATCAAGTGATTTAACCAGTAAAGATTTATTTGTCCGTCAAGGGTGGTTTAAATTCAAGAAAAAAAGAAGCGAACGTCAACGTGTTCATTTGTCAGAATGGAAAGAAGATTTAATGGCTTATATTAGCGAAAAAAGCGATGTATACAAGCCTTATTTAGTGACGACCAAAAAAGAGATTAGAGAAGTG"))
 

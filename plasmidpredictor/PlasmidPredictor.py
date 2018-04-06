@@ -22,7 +22,9 @@ class PlasmidPredictor:
 		self.margin                     = options.margin
 		self.start_time                 = int(time.time())
 		self.min_kmers_for_onex_pass    = options.min_kmers_for_onex_pass
-		self.min_perc_coverage         = options.min_perc_coverage
+		self.min_perc_coverage          = options.min_perc_coverage
+		self.homopolyer_compression     = False if options.no_hc_compression else True
+		self.max_kmer_count             = options.max_kmer_count
 		
 		if self.plasmid_data is None:
 			self.plasmid_data = str(pkg_resources.resource_filename(__name__, 'data/plasmid_data.fa'))
@@ -42,6 +44,6 @@ class PlasmidPredictor:
 			
 	def run(self):
 		self.logger.info("Starting analysis")
-		fasta = Fasta(self.logger, self.plasmid_data, self.kmer)
-		fastq = Fastq(self.logger, self.input_fastq, self.kmer, fasta.all_kmers_in_file(), self.min_fasta_hits, self.print_interval, self.output_file, self.filtered_reads_file,fasta, max_gap = self.max_gap, min_block_size = self.min_block_size, margin = self.margin, start_time = self.start_time, min_kmers_for_onex_pass = self.min_kmers_for_onex_pass, min_perc_coverage = self.min_perc_coverage)
+		fasta = Fasta(self.logger, self.plasmid_data, self.kmer, self.homopolyer_compression, max_kmer_count = self.max_kmer_count)
+		fastq = Fastq(self.logger, self.input_fastq, self.kmer, fasta.all_kmers_in_file(), self.min_fasta_hits, self.print_interval, self.output_file, self.filtered_reads_file,fasta, self.homopolyer_compression, max_gap = self.max_gap, min_block_size = self.min_block_size, margin = self.margin, start_time = self.start_time, min_kmers_for_onex_pass = self.min_kmers_for_onex_pass, min_perc_coverage = self.min_perc_coverage, max_kmer_count = self.max_kmer_count)
 		fastq.read_filter_and_map()

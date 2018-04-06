@@ -12,7 +12,7 @@ import sys
 class Error (Exception): pass
 
 class Fastq:
-	def __init__(self,logger, filename, k, fasta_kmers, min_fasta_hits, print_interval, output_file, filtered_reads_file, fasta_obj, max_gap = 4, min_block_size = 150, margin = 100, start_time = 0, min_kmers_for_onex_pass = 10,  min_perc_coverage = 95 ):
+	def __init__(self,logger, filename, k, fasta_kmers, min_fasta_hits, print_interval, output_file, filtered_reads_file, fasta_obj,homopolyer_compression, max_gap = 4, min_block_size = 150, margin = 100, start_time = 0, min_kmers_for_onex_pass = 10,  min_perc_coverage = 95, max_kmer_count = 10 ):
 		self.logger = logger
 		self.filename = filename
 		self.k = k
@@ -29,6 +29,8 @@ class Fastq:
 		self.fasta_obj = fasta_obj
 		self.min_perc_coverage = min_perc_coverage
 		self.genes_with_100_percent = {}
+		self.homopolyer_compression = homopolyer_compression
+		self.max_kmer_count = max_kmer_count
 
 	def read_filter_and_map(self):
 		counter = 0 
@@ -75,7 +77,7 @@ class Fastq:
 			self.logger.info("Read below minimum size")
 			return {}
 		
-		kmers_obj = Kmers(sequence, self.k)
+		kmers_obj = Kmers(sequence, self.k,self.homopolyer_compression)
 		read_onex_kmers = kmers_obj.get_one_x_coverage_of_kmers()
 		
 		intersect_read_fasta_kmers = self.fasta_obj.kmer_keys_set & set(read_onex_kmers)
@@ -110,8 +112,8 @@ class Fastq:
 		seq_length = len(sequence)
 		end = seq_length - self.k
 		
-		kmers_obj = Kmers(sequence, self.k)
-		read_kmers = kmers_obj.get_all_kmers()
+		kmers_obj = Kmers(sequence, self.k, self.homopolyer_compression)
+		read_kmers = kmers_obj.get_all_kmers(max_kmer_count = self.max_kmer_count)
 		is_read_matching = False
 		
 		sequence_hits, hit_counter,read_kmer_hits = self.put_kmers_in_read_bins( seq_length, end, self.fasta_kmers, read_kmers)

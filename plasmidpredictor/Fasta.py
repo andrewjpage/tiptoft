@@ -4,10 +4,12 @@ from Bio import SeqIO
 from plasmidpredictor.Kmers import Kmers
 
 class Fasta:
-	def __init__(self,logger, filename, k):
+	def __init__(self,logger, filename, k, homopolyer_compression, max_kmer_count = 10 ):
 		self.logger = logger
 		self.filename = filename
 		self.k = k
+		self.homopolyer_compression = homopolyer_compression
+		self.max_kmer_count = max_kmer_count
 
 		self.sequences_to_kmers = self.sequence_kmers()
 		self.all_kmers = self.all_kmers_in_file()
@@ -20,9 +22,9 @@ class Fasta:
 		kmer_to_sequences = {}
 		for record in SeqIO.parse(self.filename, "fasta"):
 			
-			kmers = Kmers(str(record.seq), self.k)
+			kmers = Kmers(str(record.seq), self.k, self.homopolyer_compression)
 			# We assume here that the sequence name is unique in the FASTA file
-			kmer_to_sequences[record.id] = kmers.get_all_kmers_counter()
+			kmer_to_sequences[record.id] = kmers.get_all_kmers_counter(max_kmer_count = self.max_kmer_count)
 			
 			seq_counter += 1
 			
