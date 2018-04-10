@@ -33,6 +33,6 @@ class Kmers:
 		filtered_kmers = {k:v for k,v in kmers.items() if len(v) <= max_kmer_count }
 		return filtered_kmers
 	     
-	def get_one_x_coverage_of_kmers(self, sequence, k,end):
-		return [ sequence[i:i+k] for i in range(0,end, k)]
+	def get_one_x_coverage_of_kmers(self):
+		return [ self.sequence[i:i+self.k] for i in range(0,self.end, self.k)]
 		

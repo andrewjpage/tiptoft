@@ -1,3 +1,7 @@
+v0.0.4 - 10/04/18
+------
+Fix bug in one X kmers
+
 v0.0.3 - 6/04/18
 ------
 Homopolymer compression of k-mers (TS)
