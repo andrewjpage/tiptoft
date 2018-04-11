@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "homopolymer_compression",
+        "name": "plasmidpredictor",
         "sources": [
-            "homopolymer_compression.pyx"
+            "plasmidpredictor/homopolymer_compression.pyx"
         ]
     },
-    "module_name": "homopolymer_compression"
+    "module_name": "plasmidpredictor"
 }
 END: Cython Metadata */
 
@@ -570,8 +570,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__homopolymer_compression
-#define __PYX_HAVE_API__homopolymer_compression
+#define __PYX_HAVE__plasmidpredictor
+#define __PYX_HAVE_API__plasmidpredictor
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -776,7 +776,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "homopolymer_compression.pyx",
+  "plasmidpredictor/homopolymer_compression.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -978,12 +978,12 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'homopolymer_compression' */
-#define __Pyx_MODULE_NAME "homopolymer_compression"
-extern int __pyx_module_is_main_homopolymer_compression;
-int __pyx_module_is_main_homopolymer_compression = 0;
+/* Module declarations from 'plasmidpredictor' */
+#define __Pyx_MODULE_NAME "plasmidpredictor"
+extern int __pyx_module_is_main_plasmidpredictor;
+int __pyx_module_is_main_plasmidpredictor = 0;
 
-/* Implementation of 'homopolymer_compression' */
+/* Implementation of 'plasmidpredictor' */
 static const char __pyx_k_[] = "";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_join[] = "join";
@@ -991,29 +991,29 @@ static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_sequence[] = "sequence";
 static const char __pyx_k_previous_base[] = "previous_base";
+static const char __pyx_k_plasmidpredictor[] = "plasmidpredictor";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_compressed_sequence[] = "compressed_sequence";
-static const char __pyx_k_homopolymer_compression[] = "homopolymer_compression";
-static const char __pyx_k_homopolymer_compression_pyx[] = "homopolymer_compression.pyx";
 static const char __pyx_k_homopolymer_compression_of_seque[] = "homopolymer_compression_of_sequence";
+static const char __pyx_k_plasmidpredictor_homopolymer_com[] = "plasmidpredictor/homopolymer_compression.pyx";
 static PyObject *__pyx_kp_s_;
 static PyObject *__pyx_n_s_base;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_compressed_sequence;
-static PyObject *__pyx_n_s_homopolymer_compression;
 static PyObject *__pyx_n_s_homopolymer_compression_of_seque;
-static PyObject *__pyx_kp_s_homopolymer_compression_pyx;
 static PyObject *__pyx_n_s_join;
 static PyObject *__pyx_n_s_main;
+static PyObject *__pyx_n_s_plasmidpredictor;
+static PyObject *__pyx_kp_s_plasmidpredictor_homopolymer_com;
 static PyObject *__pyx_n_s_previous_base;
 static PyObject *__pyx_n_s_sequence;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_sequence(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_sequence); /* proto */
+static PyObject *__pyx_pf_16plasmidpredictor_homopolymer_compression_of_sequence(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_sequence); /* proto */
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_codeobj__3;
 /* Late includes */
 
-/* "homopolymer_compression.pyx":2
+/* "plasmidpredictor/homopolymer_compression.pyx":2
  * # Run it with Cython
  * def homopolymer_compression_of_sequence(sequence):             # <<<<<<<<<<<<<<
  * 	previous_base = ''
@@ -1021,20 +1021,20 @@ static PyObject *__pyx_codeobj__3;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_23homopolymer_compression_1homopolymer_compression_of_sequence(PyObject *__pyx_self, PyObject *__pyx_v_sequence); /*proto*/
-static PyMethodDef __pyx_mdef_23homopolymer_compression_1homopolymer_compression_of_sequence = {"homopolymer_compression_of_sequence", (PyCFunction)__pyx_pw_23homopolymer_compression_1homopolymer_compression_of_sequence, METH_O, 0};
-static PyObject *__pyx_pw_23homopolymer_compression_1homopolymer_compression_of_sequence(PyObject *__pyx_self, PyObject *__pyx_v_sequence) {
+static PyObject *__pyx_pw_16plasmidpredictor_1homopolymer_compression_of_sequence(PyObject *__pyx_self, PyObject *__pyx_v_sequence); /*proto*/
+static PyMethodDef __pyx_mdef_16plasmidpredictor_1homopolymer_compression_of_sequence = {"homopolymer_compression_of_sequence", (PyCFunction)__pyx_pw_16plasmidpredictor_1homopolymer_compression_of_sequence, METH_O, 0};
+static PyObject *__pyx_pw_16plasmidpredictor_1homopolymer_compression_of_sequence(PyObject *__pyx_self, PyObject *__pyx_v_sequence) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("homopolymer_compression_of_sequence (wrapper)", 0);
-  __pyx_r = __pyx_pf_23homopolymer_compression_homopolymer_compression_of_sequence(__pyx_self, ((PyObject *)__pyx_v_sequence));
+  __pyx_r = __pyx_pf_16plasmidpredictor_homopolymer_compression_of_sequence(__pyx_self, ((PyObject *)__pyx_v_sequence));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_sequence(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_sequence) {
+static PyObject *__pyx_pf_16plasmidpredictor_homopolymer_compression_of_sequence(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_sequence) {
   PyObject *__pyx_v_previous_base = NULL;
   PyObject *__pyx_v_compressed_sequence = NULL;
   PyObject *__pyx_v_base = NULL;
@@ -1048,7 +1048,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("homopolymer_compression_of_sequence", 0);
 
-  /* "homopolymer_compression.pyx":3
+  /* "plasmidpredictor/homopolymer_compression.pyx":3
  * # Run it with Cython
  * def homopolymer_compression_of_sequence(sequence):
  * 	previous_base = ''             # <<<<<<<<<<<<<<
@@ -1058,7 +1058,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
   __Pyx_INCREF(__pyx_kp_s_);
   __pyx_v_previous_base = __pyx_kp_s_;
 
-  /* "homopolymer_compression.pyx":4
+  /* "plasmidpredictor/homopolymer_compression.pyx":4
  * def homopolymer_compression_of_sequence(sequence):
  * 	previous_base = ''
  * 	compressed_sequence = []             # <<<<<<<<<<<<<<
@@ -1070,7 +1070,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
   __pyx_v_compressed_sequence = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "homopolymer_compression.pyx":5
+  /* "plasmidpredictor/homopolymer_compression.pyx":5
  * 	previous_base = ''
  * 	compressed_sequence = []
  * 	for base in sequence:             # <<<<<<<<<<<<<<
@@ -1119,7 +1119,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
     __Pyx_XDECREF_SET(__pyx_v_base, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "homopolymer_compression.pyx":6
+    /* "plasmidpredictor/homopolymer_compression.pyx":6
  * 	compressed_sequence = []
  * 	for base in sequence:
  * 		if base != previous_base:             # <<<<<<<<<<<<<<
@@ -1131,7 +1131,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_5) {
 
-      /* "homopolymer_compression.pyx":7
+      /* "plasmidpredictor/homopolymer_compression.pyx":7
  * 	for base in sequence:
  * 		if base != previous_base:
  * 			previous_base = base             # <<<<<<<<<<<<<<
@@ -1141,7 +1141,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
       __Pyx_INCREF(__pyx_v_base);
       __Pyx_DECREF_SET(__pyx_v_previous_base, __pyx_v_base);
 
-      /* "homopolymer_compression.pyx":8
+      /* "plasmidpredictor/homopolymer_compression.pyx":8
  * 		if base != previous_base:
  * 			previous_base = base
  * 			compressed_sequence.append(base)             # <<<<<<<<<<<<<<
@@ -1150,7 +1150,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
  */
       __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_compressed_sequence, __pyx_v_base); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 8, __pyx_L1_error)
 
-      /* "homopolymer_compression.pyx":6
+      /* "plasmidpredictor/homopolymer_compression.pyx":6
  * 	compressed_sequence = []
  * 	for base in sequence:
  * 		if base != previous_base:             # <<<<<<<<<<<<<<
@@ -1159,7 +1159,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
  */
     }
 
-    /* "homopolymer_compression.pyx":5
+    /* "plasmidpredictor/homopolymer_compression.pyx":5
  * 	previous_base = ''
  * 	compressed_sequence = []
  * 	for base in sequence:             # <<<<<<<<<<<<<<
@@ -1169,7 +1169,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "homopolymer_compression.pyx":9
+  /* "plasmidpredictor/homopolymer_compression.pyx":9
  * 			previous_base = base
  * 			compressed_sequence.append(base)
  * 	return ''.join(compressed_sequence)             # <<<<<<<<<<<<<<
@@ -1182,7 +1182,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "homopolymer_compression.pyx":2
+  /* "plasmidpredictor/homopolymer_compression.pyx":2
  * # Run it with Cython
  * def homopolymer_compression_of_sequence(sequence):             # <<<<<<<<<<<<<<
  * 	previous_base = ''
@@ -1193,7 +1193,7 @@ static PyObject *__pyx_pf_23homopolymer_compression_homopolymer_compression_of_s
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("homopolymer_compression.homopolymer_compression_of_sequence", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("plasmidpredictor.homopolymer_compression_of_sequence", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_previous_base);
@@ -1211,17 +1211,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_homopolymer_compression(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_plasmidpredictor(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_homopolymer_compression},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_plasmidpredictor},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "homopolymer_compression",
+    "plasmidpredictor",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -1245,11 +1245,11 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_base, __pyx_k_base, sizeof(__pyx_k_base), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_compressed_sequence, __pyx_k_compressed_sequence, sizeof(__pyx_k_compressed_sequence), 0, 0, 1, 1},
-  {&__pyx_n_s_homopolymer_compression, __pyx_k_homopolymer_compression, sizeof(__pyx_k_homopolymer_compression), 0, 0, 1, 1},
   {&__pyx_n_s_homopolymer_compression_of_seque, __pyx_k_homopolymer_compression_of_seque, sizeof(__pyx_k_homopolymer_compression_of_seque), 0, 0, 1, 1},
-  {&__pyx_kp_s_homopolymer_compression_pyx, __pyx_k_homopolymer_compression_pyx, sizeof(__pyx_k_homopolymer_compression_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_join, __pyx_k_join, sizeof(__pyx_k_join), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+  {&__pyx_n_s_plasmidpredictor, __pyx_k_plasmidpredictor, sizeof(__pyx_k_plasmidpredictor), 0, 0, 1, 1},
+  {&__pyx_kp_s_plasmidpredictor_homopolymer_com, __pyx_k_plasmidpredictor_homopolymer_com, sizeof(__pyx_k_plasmidpredictor_homopolymer_com), 0, 0, 1, 0},
   {&__pyx_n_s_previous_base, __pyx_k_previous_base, sizeof(__pyx_k_previous_base), 0, 0, 1, 1},
   {&__pyx_n_s_sequence, __pyx_k_sequence, sizeof(__pyx_k_sequence), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -1263,7 +1263,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "homopolymer_compression.pyx":2
+  /* "plasmidpredictor/homopolymer_compression.pyx":2
  * # Run it with Cython
  * def homopolymer_compression_of_sequence(sequence):             # <<<<<<<<<<<<<<
  * 	previous_base = ''
@@ -1272,7 +1272,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__2 = PyTuple_Pack(4, __pyx_n_s_sequence, __pyx_n_s_previous_base, __pyx_n_s_compressed_sequence, __pyx_n_s_base); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_homopolymer_compression_pyx, __pyx_n_s_homopolymer_compression_of_seque, 2, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_plasmidpredictor_homopolymer_com, __pyx_n_s_homopolymer_compression_of_seque, 2, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1377,11 +1377,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC inithomopolymer_compression(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC inithomopolymer_compression(void)
+__Pyx_PyMODINIT_FUNC initplasmidpredictor(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initplasmidpredictor(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_homopolymer_compression(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_homopolymer_compression(void)
+__Pyx_PyMODINIT_FUNC PyInit_plasmidpredictor(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_plasmidpredictor(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -1421,7 +1421,7 @@ bad:
 }
 
 
-static int __pyx_pymod_exec_homopolymer_compression(PyObject *__pyx_pyinit_module)
+static int __pyx_pymod_exec_plasmidpredictor(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -1441,7 +1441,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_homopolymer_compression(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_plasmidpredictor(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -1477,7 +1477,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("homopolymer_compression", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("plasmidpredictor", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -1496,14 +1496,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_homopolymer_compression) {
+  if (__pyx_module_is_main_plasmidpredictor) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "homopolymer_compression")) {
-      if (unlikely(PyDict_SetItemString(modules, "homopolymer_compression", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "plasmidpredictor")) {
+      if (unlikely(PyDict_SetItemString(modules, "plasmidpredictor", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -1524,18 +1524,18 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "homopolymer_compression.pyx":2
+  /* "plasmidpredictor/homopolymer_compression.pyx":2
  * # Run it with Cython
  * def homopolymer_compression_of_sequence(sequence):             # <<<<<<<<<<<<<<
  * 	previous_base = ''
  * 	compressed_sequence = []
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_23homopolymer_compression_1homopolymer_compression_of_sequence, NULL, __pyx_n_s_homopolymer_compression); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_16plasmidpredictor_1homopolymer_compression_of_sequence, NULL, __pyx_n_s_plasmidpredictor); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_homopolymer_compression_of_seque, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "homopolymer_compression.pyx":1
+  /* "plasmidpredictor/homopolymer_compression.pyx":1
  * # Run it with Cython             # <<<<<<<<<<<<<<
  * def homopolymer_compression_of_sequence(sequence):
  * 	previous_base = ''
@@ -1552,11 +1552,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init homopolymer_compression", 0, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init plasmidpredictor", 0, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init homopolymer_compression");
+    PyErr_SetString(PyExc_ImportError, "init plasmidpredictor");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

@@ -1,3 +1,7 @@
+v0.0.5 - 11/04/18
+------
+Filter out partial  hits with same prefix
+
 v0.0.4 - 10/04/18
 ------
 Fix bug in one X kmers

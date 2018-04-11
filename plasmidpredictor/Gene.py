@@ -27,6 +27,15 @@ class Gene:
 		else:
 			return 0
 			
+	def prefix_short_name(self):
+		regex = r"^([^\.]+)\."
+		
+		m = re.search(regex, self.short_name())
+		if m and m.group:
+			return str(m.group(1))
+		else:
+			return ''
+			
 	def short_name(self):
 		regex = r"^([^_]+)_"
 		

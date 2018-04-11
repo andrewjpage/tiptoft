@@ -12,7 +12,7 @@ import sys
 class Error (Exception): pass
 
 class Fastq:
-	def __init__(self,logger, filename, k, fasta_kmers, min_fasta_hits, print_interval, output_file, filtered_reads_file, fasta_obj,homopolyer_compression, max_gap = 4, min_block_size = 150, margin = 100, start_time = 0, min_kmers_for_onex_pass = 10,  min_perc_coverage = 95, max_kmer_count = 10 ):
+	def __init__(self,logger, filename, k, fasta_kmers, min_fasta_hits, print_interval, output_file, filtered_reads_file, fasta_obj,homopolyer_compression, max_gap = 4, min_block_size = 150, margin = 100, start_time = 0, min_kmers_for_onex_pass = 10,  min_perc_coverage = 95, max_kmer_count = 10, no_gene_filter = False ):
 		self.logger = logger
 		self.filename = filename
 		self.k = k
@@ -31,6 +31,7 @@ class Fastq:
 		self.genes_with_100_percent = {}
 		self.homopolyer_compression = homopolyer_compression
 		self.max_kmer_count = max_kmer_count
+		self.no_gene_filter = no_gene_filter
 
 	def read_filter_and_map(self):
 		counter = 0 
@@ -204,7 +205,7 @@ class Fastq:
 			if kl > kz:
 				alleles.append(Gene(gene_name, kl, kz))
 				
-		self.print_out_alleles(alleles)
+		self.print_out_alleles(self.filter_contained_alleles(alleles))
 		self.identify_alleles_with_100_percent(alleles)
 		
 		return alleles
@@ -213,9 +214,30 @@ class Fastq:
 		for g in alleles:
 			if g.percentage_coverage() == 100 and g.name not in self.genes_with_100_percent:
 				self.genes_with_100_percent[g.name] = 1
+	
+	def filter_contained_alleles(self,alleles):
+		if self.no_gene_filter:
+			return alleles
+		
+		prefix_to_coverage = {}
+		filtered_alleles = []
+		for g in alleles:
+			if g.prefix_short_name() in prefix_to_coverage:
+				prefix_to_coverage[g.prefix_short_name()].append(g)
+			else:
+				prefix_to_coverage[g.prefix_short_name()] = [g]
+		
+		for genes in prefix_to_coverage.values():
+			genes.sort(key=lambda x: x.percentage_coverage(), reverse=True)
+			for index, gene in enumerate(genes):
+				if gene.percentage_coverage() == 100 or index == 0:
+					filtered_alleles.append(gene)
+			
+		return filtered_alleles
 		
 	def print_out_alleles(self, alleles):
-		found_alleles = False
+		found_alleles = False	
+		
 		for g in alleles:
 			if g.percentage_coverage() >= self.min_perc_coverage:
 				found_alleles = True
