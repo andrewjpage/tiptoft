@@ -4,7 +4,7 @@
 import pyximport
 pyximport.install()
 
-from plasmidpredictor.homopolymer_compression import homopolymer_compression_of_sequence
+from VERSIONhomopolymer_compression import homopolymer_compression_of_sequence
 
 class Kmers:
 	def __init__(self, sequence, k, homopolyer_compression):

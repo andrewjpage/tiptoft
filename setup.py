@@ -13,7 +13,7 @@ version = 'x.y.z'
 if os.path.exists('VERSION'):
   version = open('VERSION').read().strip()
 
-extensions = [Extension("plasmidpredictor", ["plasmidpredictor/homopolymer_compression.pyx"])]
+extensions = [Extension("homopolymer_compression", ["homopolymer_compression.pyx"])]
 
 setup(
     name='plasmidpredictor',
