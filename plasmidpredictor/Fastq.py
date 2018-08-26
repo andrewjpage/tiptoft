@@ -185,12 +185,15 @@ class Fastq:
 			if len(intersection_hit_keys) > min_kmers:
 				num_genes_applied += 1
 				for kmer in intersection_hit_keys:
-					fasta_obj.sequences_to_kmers[gene_name][kmer] += 1 
+					
+					if fasta_obj.sequences_to_kmers_count[gene_name][kmer] > 0:	
+						fasta_obj.sequences_to_kmers[gene_name][kmer] += 1 / fasta_obj.sequences_to_kmers_count[gene_name][kmer]
 
 		if num_genes_applied > 0:
 			return True
 		else:
-			return False
+			return False			
+						
 		
 	def full_gene_coverage(self, counter):
 		self.logger.info("Check the coverage of a sequence")

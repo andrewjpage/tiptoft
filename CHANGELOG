@@ -1,3 +1,7 @@
+v0.1.0 - 26/08/18
+------
+Adjust weight of repeated kmers.
+
 v0.0.6 - 12/04/18
 ------
 Move cython code

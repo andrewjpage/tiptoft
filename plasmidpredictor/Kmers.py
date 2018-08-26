@@ -15,6 +15,10 @@ class Kmers:
 	def get_all_kmers_counter(self, max_kmer_count = 10):
 		kmers = self.get_all_kmers_filtered(max_kmer_count)
 		return { x:0 for x in kmers.keys()}
+		
+	def get_all_kmers_freq(self, max_kmer_count = 10):
+		kmers = self.get_all_kmers_filtered(max_kmer_count)
+		return { k:len(v) for k,v in kmers.items()}
 	
 	def get_all_kmers(self, max_kmer_count = 10):
 		return self.get_all_kmers_filtered(max_kmer_count)
