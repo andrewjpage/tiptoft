@@ -6,7 +6,7 @@ from setuptools import setup, find_packages, Extension
 
 from Cython.Build import cythonize
 
-with open("README.md") as fname:
+with open("README.md", encoding="utf-8") as fname:
     README = fname.read()
 
 
