@@ -14,7 +14,7 @@ Please remember to cite the plasmidFinder paper as their database makes this sof
 # Installation
 The only dependancy is Python3. Assuming you have python 3.3+ and pip installed, just run:
 ```
-pip3 install git+git://github.com/andrewjpage/plasmidpredictor.git
+pip3 install plasmidpredictor
 ```
 
 ## Debian/Ubuntu (Trusty/Xenial)
@@ -22,7 +22,7 @@ To install Python3 on Ubuntu, as root run:
 ```
 apt-get update -qq
 apt-get install -y git python3 python3-setuptools python3-biopython python3-pip
-pip3 install git+git://github.com/andrewjpage/plasmidpredictor.git
+pip3 install plasmidpredictor
 ```
 
 ## Windows

@@ -129,7 +129,7 @@ class Fastq:
 		is_read_matching = self.apply_kmers_to_genes(self.fasta_obj,block_kmers, candidate_gene_names)
 		
 		if self.filtered_reads_file:
-			self.append_read_to_fastq_file(read)
+			self.append_read_to_fastq_file(read, block_start, block_end)
 				
 		return is_read_matching
 			
@@ -207,6 +207,10 @@ class Fastq:
 
 			if kl > kz:
 				alleles.append(Gene(gene_name, kl, kz))
+			
+			print(gene_name+ "\t"+ str(kl) +"\t"+ str(kz) +"\t"+ str(kv) +"\t"+ str(kv_total_length) )
+			
+			IncI1.1_Alpha_AP005147	73	16	dict_values([0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])	89
 				
 		self.print_out_alleles(self.filter_contained_alleles(alleles))
 		self.identify_alleles_with_100_percent(alleles)
