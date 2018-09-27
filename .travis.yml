@@ -14,5 +14,9 @@ cache:
 install:
   - pip3 install cython
   - python3 setup.py install
+before_script:
+  - pip3 install codecov
 script:
-  - "./run_tests.sh" 
+  - coverage run setup.py test
+after_success:
+  - codecov
