@@ -167,4 +167,12 @@ __PRODUCT__: This is the full product of the gene as found in the database.
 # Resource usage
 For an 800Mbyte FASTQ file (unzipped) of long reads from a Oxford Nanopore MinION containing Salmonella required 80MB of RAM and took under 1 minute.
 
+## License
+TipToft is free software, licensed under [GPLv3](https://github.com/andrewjpage/tiptoft/blob/master/GPL-LICENSE).
+
+## Feedback/Issues
+Please report any issues to the [issues page](https://github.com/andrewjpage/tiptoft/issues).
+
+## Contribute to the software
+If you wish to fix a bug or add new features to the software we welcome Pull Requests. Please fork the repo, make the change, then submit a Pull Request with details about what the change is and what it fixes/adds.
 

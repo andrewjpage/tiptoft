@@ -1,0 +1,6 @@
+GENE	COMPLETENESS	%COVERAGE	ACCESSION	DATABASE	PRODUCT
+rep7.1	Full	100	AB037671	plasmidfinder	rep7.1_repC(Cassette)_AB037671
+rep7.5	Full	100	AF378372	plasmidfinder	rep7.5_CDS1(pKC5b)_AF378372
+rep7.9	Full	100	NC007791	plasmidfinder	rep7.9_CDS3(pUSA02)_NC007791
+rep7.17	Full	100	AM990993.1	plasmidfinder	rep7.17_repC(pS0385-1)_AM990993.1
+repUS14.	Full	100	AP003367	plasmidfinder	repUS14._repA(VRSAp)_AP003367

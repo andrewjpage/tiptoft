@@ -2,7 +2,7 @@ import logging
 import os
 from tiptoft.RefGenesGetter import RefGenesGetter
 
-class tiptoftDatabaseDownloader:
+class TipToftDatabaseDownloader:
 	def __init__(self,options):
 		self.logger = logging.getLogger(__name__)
 		self.output_prefix = options.output_prefix

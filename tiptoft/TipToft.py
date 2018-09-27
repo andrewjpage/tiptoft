@@ -6,7 +6,7 @@ import pkg_resources
 from tiptoft.Fasta import Fasta
 from tiptoft.Fastq import Fastq
 
-class tiptoft:
+class TipToft:
 	def __init__(self,options):
 		self.logger = logging.getLogger(__name__)
 		self.plasmid_data               = options.plasmid_data 
