@@ -164,6 +164,15 @@ __DATABASE__: This is where the data has come from, which is currently always pl
 
 __PRODUCT__: This is the full product of the gene as found in the database.
 
+# Example usage
+A real [test file](https://github.com/andrewjpage/tiptoft/raw/master/example_data/ERS654932_plasmids.fastq.gz) is bundled in the repository. Download it then run:
+
+```
+tiptoft ERS654932_plasmids.fastq.gz
+```
+
+The [expected output](https://raw.githubusercontent.com/andrewjpage/tiptoft/master/example_data/expected_output) is in the repository.
+
 # Resource usage
 For an 800Mbyte FASTQ file (unzipped) of long reads from a Oxford Nanopore MinION containing Salmonella required 80MB of RAM and took under 1 minute.
 
