@@ -1,8 +1,8 @@
 '''Read in a FASTQ file and identify matching plasmids'''
-from plasmidpredictor.Kmers import Kmers
-from plasmidpredictor.Read import Read
-from plasmidpredictor.Gene import Gene
-from plasmidpredictor.Blocks import Blocks
+from tiptoft.Kmers import Kmers
+from tiptoft.Read import Read
+from tiptoft.Gene import Gene
+from tiptoft.Blocks import Blocks
 import subprocess
 import os
 import numpy
@@ -207,10 +207,6 @@ class Fastq:
 
 			if kl > kz:
 				alleles.append(Gene(gene_name, kl, kz))
-			
-			print(gene_name+ "\t"+ str(kl) +"\t"+ str(kz) +"\t"+ str(kv) +"\t"+ str(kv_total_length) )
-			
-			IncI1.1_Alpha_AP005147	73	16	dict_values([0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])	89
 				
 		self.print_out_alleles(self.filter_contained_alleles(alleles))
 		self.identify_alleles_with_100_percent(alleles)

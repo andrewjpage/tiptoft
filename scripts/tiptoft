@@ -6,18 +6,18 @@ import os
 import pkg_resources
 sys.path.append('../')
 sys.path.append('./')
-from plasmidpredictor.PlasmidPredictor import PlasmidPredictor
-from plasmidpredictor.InputTypes import InputTypes
+from tiptoft.TipToft import TipToft
+from tiptoft.InputTypes import InputTypes
 
 version = ''
 try:
-	version = pkg_resources.get_distribution("plasmidpredictor").version
+	version = pkg_resources.get_distribution("tiptoft").version
 except pkg_resources.DistributionNotFound:
 	version = 'x.y.z'
 
 parser = argparse.ArgumentParser(
 	description = 'Plasmid replicon and incompatibility group prediction from uncorrected long reads',
-	usage = 'plasmidpredictor [options] input.fastq', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+	usage = 'tiptoft [options] input.fastq', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 parser.add_argument('input_fastq', help='Input FASTQ file (optionally gzipped)', type=InputTypes.is_fastq_file_valid)
 
@@ -51,8 +51,8 @@ if options.verbose:
 	pr = cProfile.Profile()
 	pr.enable()   
 
-	plasmidpredictor = PlasmidPredictor(options)
-	plasmidpredictor.run()
+	tiptoft = TipToft(options)
+	tiptoft.run()
 
 	pr.disable()
 	s = io.StringIO()
@@ -62,5 +62,5 @@ if options.verbose:
 	print(s.getvalue())
 	
 else:
-	plasmidpredictor = PlasmidPredictor(options)
-	plasmidpredictor.run()
+	tiptoft = TipToft(options)
+	tiptoft.run()

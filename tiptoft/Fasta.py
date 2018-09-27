@@ -1,7 +1,7 @@
 '''Read in a FASTA file and extract all the k-mers'''
 import operator
 from Bio import SeqIO
-from plasmidpredictor.Kmers import Kmers
+from tiptoft.Kmers import Kmers
 
 class Fasta:
 	def __init__(self,logger, filename, k, homopolyer_compression, max_kmer_count = 10 ):

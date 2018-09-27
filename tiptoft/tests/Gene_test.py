@@ -1,6 +1,6 @@
 import unittest
 import os
-from plasmidpredictor.Gene import Gene
+from tiptoft.Gene import Gene
 
 class TestGene(unittest.TestCase):
 

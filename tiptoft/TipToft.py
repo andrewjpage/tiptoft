@@ -3,10 +3,10 @@ import os
 import sys
 import time
 import pkg_resources
-from plasmidpredictor.Fasta import Fasta
-from plasmidpredictor.Fastq import Fastq
+from tiptoft.Fasta import Fasta
+from tiptoft.Fastq import Fastq
 
-class PlasmidPredictor:
+class tiptoft:
 	def __init__(self,options):
 		self.logger = logging.getLogger(__name__)
 		self.plasmid_data               = options.plasmid_data 

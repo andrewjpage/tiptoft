@@ -1,7 +1,7 @@
 import unittest
 import os
 import logging
-from plasmidpredictor.Kmers import Kmers
+from tiptoft.Kmers import Kmers
 
 test_modules_dir = os.path.dirname(os.path.realpath(__file__))
 data_dir = os.path.join(test_modules_dir, 'data','kmers')

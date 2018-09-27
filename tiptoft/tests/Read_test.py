@@ -1,6 +1,6 @@
 import unittest
 import os
-from plasmidpredictor.Read import Read
+from tiptoft.Read import Read
 
 test_modules_dir = os.path.dirname(os.path.realpath(__file__))
 data_dir = os.path.join(test_modules_dir, 'data','read')

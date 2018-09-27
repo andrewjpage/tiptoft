@@ -17,14 +17,14 @@ if os.path.exists('VERSION'):
 extensions = [Extension("homopolymer_compression", ["homopolymer_compression.pyx"])]
 
 setup(
-    name='plasmidpredictor',
+    name='tiptoft',
     version=version,
-    description='plasmidpredictor: predict which plasmid should be present from uncorrected long read data',
+    description='tiptoft: predict which plasmid should be present from uncorrected long read data',
     long_description=README,
     packages = find_packages(),
     author='Andrew J. Page',
     author_email='andrew.page@quadram.ac.uk',
-    url='https://github.com/andrewjpage/plasmidpredictor',
+    url='https://github.com/andrewjpage/tiptoft',
     scripts=glob.glob('scripts/*'),
     test_suite='nose.collector',
     tests_require=['nose >= 1.3'],
@@ -34,7 +34,7 @@ setup(
         'cython'
     ],
     ext_modules = cythonize(extensions),
-    package_data={'plasmidpredictor': ['data/*']},
+    package_data={'tiptoft': ['data/*']},
     license='GPLv3',
     classifiers=[
         'Development Status :: 4 - Beta',

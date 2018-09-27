@@ -1,6 +1,6 @@
 import unittest
 import os
-from plasmidpredictor.Blocks import Blocks
+from tiptoft.Blocks import Blocks
 
 class TestBlocks(unittest.TestCase):
 

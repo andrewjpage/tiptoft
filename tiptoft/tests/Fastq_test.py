@@ -2,9 +2,9 @@ import unittest
 import os
 import logging
 import filecmp
-from plasmidpredictor.Fasta import Fasta
-from plasmidpredictor.Fastq import Fastq
-from plasmidpredictor.Fastq import Gene
+from tiptoft.Fasta import Fasta
+from tiptoft.Fastq import Fastq
+from tiptoft.Fastq import Gene
 
 test_modules_dir = os.path.dirname(os.path.realpath(__file__))
 data_dir = os.path.join(test_modules_dir, 'data','fastq')

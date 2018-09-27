@@ -1,8 +1,8 @@
 import logging
 import os
-from plasmidpredictor.RefGenesGetter import RefGenesGetter
+from tiptoft.RefGenesGetter import RefGenesGetter
 
-class PlasmidPredictorDatabaseDownloader:
+class tiptoftDatabaseDownloader:
 	def __init__(self,options):
 		self.logger = logging.getLogger(__name__)
 		self.output_prefix = options.output_prefix
