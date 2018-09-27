@@ -12,6 +12,7 @@ cache:
   - "build"
   - "$HOME/.cache/pip"
 install:
+  - pip3 install cython
   - python3 setup.py install
 script:
   - "./run_tests.sh" 
