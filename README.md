@@ -2,7 +2,7 @@
 Given some raw uncorrected long reads, such as those from PacBio or Oxford Nanopore, predict which plasmid should be present.  Assemblies of long read data can often miss out on plasmids, particularly if they are very small or have a copy number which is too high/low when compared to the chromosome. This software gives you an indication of which plasmids to expect, flagging potential issues with an assembly.
 
 [![Build Status](https://travis-ci.org/andrewjpage/tiptoft.svg?branch=master)](https://travis-ci.org/andrewjpage/tiptoft)
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-brightgreen.svg)](https://github.com/andrewjpage/tiptoft/blob/master/LICEN
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-brightgreen.svg)](https://github.com/andrewjpage/tiptoft/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/andrewjpage/tiptoft/branch/master/graph/badge.svg)](https://codecov.io/gh/andrewjpage/tiptoft)
 
 # Paper
