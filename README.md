@@ -38,9 +38,9 @@ Install [Docker](https://www.docker.com/).  There is a docker container which ge
 docker pull andrewjpage/tiptoft
 ```
 
-To use it you would use a command such as this (substituting in your filename), where your files are assumed to be stored in the current directory:
+To use it you would use a command such as this (substituting in your filename/directories), using the example file in this respository:
 ```
-docker run --rm -it andrewjpage/tiptoft tiptoft reads.fastq.gz
+docker run --rm -it -v /path/to/example_data:/example_data andrewjpage/tiptoft tiptoft /example_data/ERS654932_plasmids.fastq.gz
 ```
 
 ## Windows
