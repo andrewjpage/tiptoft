@@ -49,7 +49,7 @@ class TestFastq(unittest.TestCase):
 		input_alleles = [ Gene('rep7.1_repC(Cassette)_AB037671', 9, 1), Gene('rep7.5_CDS1(pKC5b)_AF378372', 8, 2), Gene('rep7.6_ORF(pKH1)_SAU38656', 10, 0), Gene('repUS14.1_repA(VRSAp)_AP003367', 10, 0)]
 		expected_allele_names = ['rep7.6','repUS14.1']
 		filtered_alleles = fastq.filter_contained_alleles(input_alleles)
-		self.assertEquals(expected_allele_names, list(map(lambda x: x.short_name(), filtered_alleles)))
+		self.assertEquals(expected_allele_names, sort(list(map(lambda x: x.short_name(), filtered_alleles))))
 
 	def test_filtering_alleles_all_partial(self):
 		logger = logging.getLogger(__name__)
@@ -59,7 +59,7 @@ class TestFastq(unittest.TestCase):
 		input_alleles = [ Gene('rep7.1_repC(Cassette)_AB037671', 9, 1), Gene('rep7.5_CDS1(pKC5b)_AF378372', 8, 2), Gene('rep7.6_ORF(pKH1)_SAU38656', 7, 3), Gene('repUS14.1_repA(VRSAp)_AP003367', 10, 0)]
 		expected_allele_names = ['rep7.1','repUS14.1']
 		filtered_alleles = fastq.filter_contained_alleles(input_alleles)
-		self.assertEquals(expected_allele_names, list(map(lambda x: x.short_name(), filtered_alleles)))
+		self.assertEquals(expected_allele_names, sort(list(map(lambda x: x.short_name(), filtered_alleles))))
 
 	def test_filtering_alleles_partial_equal_values(self):
 		logger = logging.getLogger(__name__)
@@ -69,7 +69,7 @@ class TestFastq(unittest.TestCase):
 		input_alleles = [ Gene('rep7.1_repC(Cassette)_AB037671', 9, 1), Gene('rep7.5_CDS1(pKC5b)_AF378372', 9, 1), Gene('rep7.6_ORF(pKH1)_SAU38656', 9, 1), Gene('repUS14.1_repA(VRSAp)_AP003367', 10, 0)]
 		expected_allele_names = ['rep7.1','repUS14.1']
 		filtered_alleles = fastq.filter_contained_alleles(input_alleles)
-		self.assertEquals(expected_allele_names, list(map(lambda x: x.short_name(), filtered_alleles)))
+		self.assertEquals(expected_allele_names, sort(list(map(lambda x: x.short_name(), filtered_alleles))))
 
 	def test_filtering_alleles_all_complete(self):
 		logger = logging.getLogger(__name__)
@@ -79,7 +79,7 @@ class TestFastq(unittest.TestCase):
 		input_alleles = [ Gene('rep7.1_repC(Cassette)_AB037671', 10, 0), Gene('rep7.5_CDS1(pKC5b)_AF378372', 10, 0), Gene('rep7.6_ORF(pKH1)_SAU38656', 10, 0), Gene('repUS14.1_repA(VRSAp)_AP003367', 10, 0)]
 		expected_allele_names = ['rep7.1', 'rep7.5', 'rep7.6', 'repUS14.1']
 		filtered_alleles = fastq.filter_contained_alleles(input_alleles)
-		self.assertEquals(expected_allele_names, list(map(lambda x: x.short_name(), filtered_alleles)))
+		self.assertEquals(expected_allele_names, sort(list(map(lambda x: x.short_name(), filtered_alleles))))
 
 #	def test_stap_aureus_pacbio(self):
 #		logger = logging.getLogger(__name__)
