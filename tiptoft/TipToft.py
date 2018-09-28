@@ -1,3 +1,4 @@
+'''Driver class for the tiptoft script'''
 import logging
 import os
 import sys
@@ -43,6 +44,7 @@ class TipToft:
 		else:
 			self.logger.setLevel(logging.ERROR)
 			
+	'''pass everything over to other classes'''
 	def run(self):
 		self.logger.info("Starting analysis")
 		fasta = Fasta(self.logger, self.plasmid_data, self.kmer, self.homopolyer_compression, max_kmer_count = self.max_kmer_count)

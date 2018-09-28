@@ -33,6 +33,7 @@ class Fastq:
 		self.max_kmer_count = max_kmer_count
 		self.no_gene_filter = no_gene_filter
 
+	'''Read in a whole FASTQ file, do a quick pass filter, then map more sensitively'''
 	def read_filter_and_map(self):
 		counter = 0 
 		match_counter = 0
@@ -63,6 +64,7 @@ class Fastq:
 		
 		return self
 		
+	'''Take a single read, do a quick kmer check to see if it matches any gene, then map more sensitively'''
 	def map_read(self, read):
 		candidate_gene_names = self.does_read_contain_quick_pass_kmers(read.seq) 
 		if len(candidate_gene_names) > 0: 
@@ -71,6 +73,7 @@ class Fastq:
 		else:
 			return False
 		
+	'''Taking kmers at 1x, see do any match the gene kmers'''
 	def does_read_contain_quick_pass_kmers(self, sequence):
 		self.logger.info("Perform quick pass k-mer check on read")
 		seq_length = len(sequence)
@@ -92,7 +95,7 @@ class Fastq:
 
 		return {}
 		
-		
+	'''place kmers into read bins'''
 	def put_kmers_in_read_bins(self, seq_length, end, fasta_kmers, read_kmers):
 		self.logger.info("Put k-mers in read bins")
 		sequence_hits = numpy.zeros(int(seq_length/self.k)+1, dtype=int)
@@ -107,6 +110,7 @@ class Fastq:
 					hit_kmers[read_kmer]=read_kmer_hit
 		return sequence_hits, hit_counter,hit_kmers
 
+	'''do a fine grained mapping of kmers to a read'''
 	def map_kmers_to_read(self, sequence, read, candidate_gene_names):	
 		self.logger.info("Map k-mers to read")	
 
@@ -133,10 +137,12 @@ class Fastq:
 				
 		return is_read_matching
 			
+	'''optional method to output only reads matching the genes allowing for offline assembly'''
 	def append_read_to_fastq_file(self, read, block_start, block_end):
 			with open(self.filtered_reads_file, 'a+') as output_fh:
 				output_fh.write(str(read))
 			
+	'''given a putative block where a gene may match, get all the kmers'''
 	def create_kmers_for_block(self, block_start, block_end, read_kmer_hits):
 		if block_end ==  0:
 			return {}
@@ -155,6 +161,7 @@ class Fastq:
 			
 		return block_kmers
 	
+	'''Get a list of genes which may be in the reads'''
 	def genes_containing_first_pass_kmers(self, fasta_obj, first_pass_kmers):
 		genes = {}
 		for current_kmer in first_pass_kmers:
@@ -169,7 +176,7 @@ class Fastq:
 						genes[gene_name] = 1
 		return genes
 				
-	
+	'''given some kmer hits, apply the kmers to the genes so theres a count'''
 	def apply_kmers_to_genes(self, fasta_obj, hit_kmers, gene_names):
 		num_genes_applied = 0
 		min_kmers = self.min_kmers_for_onex_pass * self.k
@@ -194,7 +201,7 @@ class Fastq:
 		else:
 			return False			
 						
-		
+	'''calculate the coverage of the genes'''
 	def full_gene_coverage(self, counter):
 		self.logger.info("Check the coverage of a sequence")
 		alleles = []
@@ -213,11 +220,13 @@ class Fastq:
 		
 		return alleles
 		
+	'''Identify genes which match 100 percent'''
 	def identify_alleles_with_100_percent(self,alleles):
 		for g in alleles:
 			if g.percentage_coverage() == 100 and g.name not in self.genes_with_100_percent:
 				self.genes_with_100_percent[g.name] = 1
 	
+	'''Some genes are subsets of other genes, so optionally filter out'''
 	def filter_contained_alleles(self,alleles):
 		if self.no_gene_filter:
 			return alleles
@@ -238,6 +247,7 @@ class Fastq:
 			
 		return filtered_alleles
 		
+	'''print alleles to stdout'''
 	def print_out_alleles(self, alleles):
 		found_alleles = False	
 		
@@ -253,6 +263,7 @@ class Fastq:
 		if found_alleles and self.print_interval is not None:
 			print("****")
 			
+	'''print out the header'''
 	def print_out_header(self):
 		header = "GENE\tCOMPLETENESS\t%COVERAGE\tACCESSION\tDATABASE\tPRODUCT"
 		if self.output_file:

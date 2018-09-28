@@ -1,3 +1,4 @@
+'''driver class for downloading database'''
 import logging
 import os
 from tiptoft.RefGenesGetter import RefGenesGetter
@@ -13,6 +14,7 @@ class TipToftDatabaseDownloader:
 		else:
 			self.logger.setLevel(logging.ERROR)
 			
+	'''pass all over to other classes'''
 	def run(self):
 		refgenes  = RefGenesGetter(verbose = self.verbose)
 		

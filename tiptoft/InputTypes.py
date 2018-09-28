@@ -1,3 +1,4 @@
+'''check the input types from the command line script'''
 import os
 import argparse
 

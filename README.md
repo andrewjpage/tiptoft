@@ -189,7 +189,7 @@ A real [test file](https://github.com/andrewjpage/tiptoft/raw/master/example_dat
 tiptoft ERS654932_plasmids.fastq.gz
 ```
 
-The [expected output](https://raw.githubusercontent.com/andrewjpage/tiptoft/master/example_data/expected_output) is in the repository.
+The [expected output](https://raw.githubusercontent.com/andrewjpage/tiptoft/master/example_data/expected_output) is in the repository. This uses a bundled database, however if you wish to use the latest up to date database, you should run the tiptoft_database_downloader script.
 
 # Resource usage
 For an 800Mbyte FASTQ file (unzipped) of long reads from a Oxford Nanopore MinION containing Salmonella required 80MB of RAM and took under 1 minute.

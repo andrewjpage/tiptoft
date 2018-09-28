@@ -1,3 +1,4 @@
+'''Represents a gene or sequence allele'''
 import re
 class Gene:
 	def __init__(self,name, kmers_with_coverage, kmers_without_coverage):
@@ -8,6 +9,7 @@ class Gene:
 	def __str__(self):
 		return "\t".join((self.short_name(), self.completeness(), str(self.percentage_coverage()), self.accession(),'plasmidfinder', self.name))
 		
+	'''is the gene fully covered'''
 	def completeness(self):
 		if self.is_full_coverage():
 			return "Full"
@@ -20,6 +22,7 @@ class Gene:
 		else:
 			return False
 			
+	'''calculate the coverage of the gene'''
 	def percentage_coverage(self):
 		total_kmers = self.kmers_with_coverage + self.kmers_without_coverage
 		if total_kmers > 0:
@@ -27,6 +30,7 @@ class Gene:
 		else:
 			return 0
 			
+	'''construct the short human readable name for the output'''
 	def prefix_short_name(self):
 		regex = r"^([^\.]+)\."
 		
@@ -44,7 +48,8 @@ class Gene:
 			return str(m.group(1))
 		else:
 			return ''
-			
+	
+	'''extract the accession which is hardcoded in the database sequence name'''
 	def accession(self):
 		regex = r"^([^_]+)_([^_]*)_(.+)$"
 		

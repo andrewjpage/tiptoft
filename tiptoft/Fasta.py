@@ -17,7 +17,7 @@ class Fasta:
 		self.kmer_keys_set = set(self.all_kmers.keys())
 		self.sequences_to_kmers_count = self.sequence_kmers_vals()
 		
-		
+	'''Count the kmers in a sequence'''
 	def sequence_kmers_vals(self):
 		seq_counter = 0
 	
@@ -32,6 +32,7 @@ class Fasta:
 	
 		return kmer_to_sequences
 
+	'''redundant'''
 	def sequence_kmers(self):
 		seq_counter = 0
 		
@@ -46,7 +47,7 @@ class Fasta:
 			
 		return kmer_to_sequences
 		
-		
+	'''create a dictionary of kmers to underlying genes'''
 	def all_kmers_to_seq_in_file(self):
 		kmers_to_genes = {}
 		for seq_name, kmer_counts in self.sequences_to_kmers.items():
@@ -58,6 +59,7 @@ class Fasta:
 				
 		return  kmers_to_genes
 	
+	'''given a fasta file, extract all kmers'''
 	def all_kmers_in_file(self):
 		self.logger.info("Finding all k-mers in plasmid FASTA file")
 		all_kmers = {}
