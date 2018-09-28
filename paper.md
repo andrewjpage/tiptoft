@@ -10,7 +10,7 @@ authors:
    orcid: 0000-0001-6919-6062
    affiliation: Quadram Institute Bioscience, Norwich Research Park, Norwich, UK.
  - name: Torsten Seemann
-   orcid: 0000-0001-6046-610X, 
+   orcid: 0000-0001-6046-610X
    affiliation: Melbourne Bioinformatics, The University of Melbourne, Parkville, Australia.
   
 date: 1 Oct 2018
