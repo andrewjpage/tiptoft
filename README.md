@@ -4,6 +4,8 @@ Given some raw uncorrected long reads, such as those from PacBio or Oxford Nanop
 [![Build Status](https://travis-ci.org/andrewjpage/tiptoft.svg?branch=master)](https://travis-ci.org/andrewjpage/tiptoft)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-brightgreen.svg)](https://github.com/andrewjpage/tiptoft/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/andrewjpage/tiptoft/branch/master/graph/badge.svg)](https://codecov.io/gh/andrewjpage/tiptoft)
+[![Docker Build Status](https://img.shields.io/docker/build/andrewjpage/tiptoft.svg)](https://hub.docker.com/r/andrewjpage/tiptoft)  
+[![Docker Pulls](https://img.shields.io/docker/pulls/andrewjpage/tiptoft.svg)](https://hub.docker.com/r/andrewjpage/tiptoft)  
 
 # Paper
 Coming soon.
