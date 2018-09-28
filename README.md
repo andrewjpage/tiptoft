@@ -31,6 +31,18 @@ pip3 install cython
 pip3 install tiptoft
 ```
 
+## Docker
+Install [Docker](https://www.docker.com/).  There is a docker container which gets automatically built from the latest version of TipToft. To install it:
+
+```
+docker pull andrewjpage/tiptoft
+```
+
+To use it you would use a command such as this (substituting in your filename), where your files are assumed to be stored in the current directory:
+```
+docker run --rm -it andrewjpage/tiptoft tiptoft reads.fastq.gz
+```
+
 ## Windows
 Like virtually all Bioinformatics software, this software is unlikely to work on Windows. Try using a Linux virtual machine.
 
