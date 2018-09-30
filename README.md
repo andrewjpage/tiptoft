@@ -4,7 +4,7 @@ Given some raw uncorrected long reads, such as those from PacBio or Oxford Nanop
 [![Build Status](https://travis-ci.org/andrewjpage/tiptoft.svg?branch=master)](https://travis-ci.org/andrewjpage/tiptoft)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-brightgreen.svg)](https://github.com/andrewjpage/tiptoft/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/andrewjpage/tiptoft/branch/master/graph/badge.svg)](https://codecov.io/gh/andrewjpage/tiptoft)
-[![Docker Build Status](https://img.shields.io/docker/build/andrewjpage/tiptoft.svg)](https://hub.docker.com/r/andrewjpage/tiptoft)  
+[![Docker Build Status](https://img.shields.io/docker/build/andrewjpage/tiptoft.svg)](https://hub.docker.com/r/andrewjpage/tiptoft)
 [![Docker Pulls](https://img.shields.io/docker/pulls/andrewjpage/tiptoft.svg)](https://hub.docker.com/r/andrewjpage/tiptoft)  
 
 # Paper
@@ -16,17 +16,22 @@ Please remember to cite the plasmidFinder paper as their database makes this sof
 
 
 # Installation
-The only dependancy is Python3. Assuming you have python 3.3+ and pip installed, just run:
+The only dependancy is Python3 and this should work on Linux or OSX. Assuming you have Python 3.3+ and pip installed, just run:
 ```
 pip3 install cython
 pip3 install tiptoft
 ```
 
-## Debian/Ubuntu (Trusty/Xenial)
-To install Python3 on Ubuntu, as root run:
+or if you wish to install the latest development version:
 ```
-apt-get update -qq
-apt-get install -y git python3 python3-setuptools python3-biopython python3-pip
+pip3 install git+git://github.com/andrewjpage/tiptoft.git
+```
+
+## Debian/Ubuntu (Trusty/Xenial)
+To install Python3 on Ubuntu run:
+```
+sudo apt-get update -qq
+sudo apt-get install -y git python3 python3-setuptools python3-biopython python3-pip
 pip3 install cython
 pip3 install tiptoft
 ```
@@ -43,8 +48,17 @@ To use it you would use a command such as this (substituting in your filename/di
 docker run --rm -it -v /path/to/example_data:/example_data andrewjpage/tiptoft tiptoft /example_data/ERS654932_plasmids.fastq.gz
 ```
 
+## HomeBrew
+Install [Brew](https://brew.sh/) for OSX or [LinuxBrew](http://linuxbrew.sh/) for Linux, then run:
+
+```
+brew install python3
+pip3 install cython
+pip3 install tiptoft
+```
+
 ## Windows
-Like virtually all Bioinformatics software, this software is unlikely to work on Windows. Try using a Linux virtual machine.
+Like virtually all Bioinformatics software, this software is unlikely to work on Windows (if it does, please let me know). Try using Docker or a Linux virtual machine.
 
 # Usage
 ## tiptoft_database_downloader script
