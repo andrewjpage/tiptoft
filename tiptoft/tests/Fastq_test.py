@@ -21,6 +21,15 @@ class TestFastq(unittest.TestCase):
 		fastq = Fastq(logger, os.path.join(data_dir,'query.fastq'), 4 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta, True)
 				
 		self.assertTrue(fastq.read_filter_and_map())
+		
+	def test_reverse(self):
+		logger = logging.getLogger(__name__)
+		logger.setLevel(logging.ERROR)
+		fasta = Fasta(logger, os.path.join(data_dir,'plasmid_data.fa'),4, True)
+	
+		fastq = Fastq(logger, os.path.join(data_dir,'reverse.fastq'), 4 , fasta.all_kmers_in_file(), 1, 50, None, None, fasta, True)
+			
+		self.assertTrue(fastq.read_filter_and_map())
 	
 	def test_gzipped_input(self):
 		logger = logging.getLogger(__name__)
