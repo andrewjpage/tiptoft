@@ -267,7 +267,7 @@ class Fastq:
 	def print_out_header(self):
 		header = "GENE\tCOMPLETENESS\t%COVERAGE\tACCESSION\tDATABASE\tPRODUCT"
 		if self.output_file:
-			with open(self.output_file, 'a+') as output_fh:
+			with open(self.output_file, 'w+') as output_fh:
 				output_fh.write(header + "\n")			
 		else:
 			print(header)
