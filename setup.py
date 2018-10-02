@@ -1,10 +1,6 @@
 import os
-#import shutil
-#import sys
 import glob
 from setuptools import setup, find_packages, Extension
-
-from Cython.Build import cythonize
 
 with open("README.md", encoding="utf-8") as fname:
     README = fname.read()
@@ -14,7 +10,13 @@ version = 'x.y.z'
 if os.path.exists('VERSION'):
     version = open('VERSION').read().strip()
 
-extensions = [Extension("homopolymer_compression", ["homopolymer_compression.pyx"])]
+USE_CYTHON = False
+ext = '.pyx' if USE_CYTHON else '.c'
+extensions = [Extension("homopolymer_compression", ["homopolymer_compression"+ext])]
+
+if USE_CYTHON:
+    from Cython.Build import cythonize
+    extensions = cythonize(extensions)
 
 setup(
     name='tiptoft',
@@ -33,7 +35,7 @@ setup(
         'pyfastaq >= 3.12.0',
         'cython'
     ],
-    ext_modules = cythonize(extensions),
+    ext_modules = extensions,
     package_data={'tiptoft': ['data/*']},
     license='GPLv3',
     classifiers=[
