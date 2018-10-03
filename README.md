@@ -16,7 +16,7 @@ Please remember to cite the plasmidFinder paper as their database makes this sof
 
 
 # Installation
-The only dependancy is Python3 and this should work on Linux or OSX. Assuming you have Python 3.3+ and pip installed, just run:
+The only dependancies are Python3 and a compiler (gcc, clang,...) and this should work on Linux or OSX. Cython needs to be installed in advance. Assuming you have Python 3.3+ and pip installed, just run:
 ```
 pip3 install cython
 pip3 install tiptoft
