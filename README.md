@@ -12,7 +12,7 @@ Coming soon.
 
 Please remember to cite the plasmidFinder paper as their database makes this software work:
 
-"In Silico Detection and Typing of Plasmids using PlasmidFinder and Plasmid Multilocus Sequence Typing", Carattoli et. al, Antimicrob Agents Chemother. 2014 Jul; 58(7): 3895–3903. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4068535/
+Carattoli *et al*, *In Silico Detection and Typing of Plasmids using PlasmidFinder and Plasmid Multilocus Sequence Typing*, **Antimicrob Agents Chemother.** 2014;58(7):3895–3903. [view](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4068535/)
 
 
 # Installation
@@ -48,11 +48,11 @@ To use it you would use a command such as this (substituting in your filename/di
 docker run --rm -it -v /path/to/example_data:/example_data andrewjpage/tiptoft tiptoft /example_data/ERS654932_plasmids.fastq.gz
 ```
 
-## HomeBrew
+## Homebrew
 Install [Brew](https://brew.sh/) for OSX or [LinuxBrew](http://linuxbrew.sh/) for Linux, then run:
 
 ```
-brew install python3
+brew install python # this is python v3
 pip3 install cython
 pip3 install tiptoft
 ```
@@ -206,7 +206,7 @@ tiptoft ERS654932_plasmids.fastq.gz
 The [expected output](https://raw.githubusercontent.com/andrewjpage/tiptoft/master/example_data/expected_output) is in the repository. This uses a bundled database, however if you wish to use the latest up to date database, you should run the tiptoft_database_downloader script.
 
 # Resource usage
-For an 800Mbyte FASTQ file (unzipped) of long reads from a Oxford Nanopore MinION containing Salmonella required 80MB of RAM and took under 1 minute.
+For an 800 MB FASTQ file (unzipped) of long reads from a Oxford Nanopore MinION containing Salmonella required 80 MB of RAM and took under 1 minute.
 
 ## License
 TipToft is free software, licensed under [GPLv3](https://github.com/andrewjpage/tiptoft/blob/master/GPL-LICENSE).
