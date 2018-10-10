@@ -58,7 +58,7 @@ pip3 install tiptoft
 ```
 
 ## Windows
-Like virtually all Bioinformatics software, this software is unlikely to work on Windows (if it does, please let me know). Try using Docker or a Linux virtual machine.
+It has been reported that the software works when using Ubuntu on Windows 10. This is not a supported platform as the authors don't use windows, so use at your own risk.
 
 # Usage
 ## tiptoft_database_downloader script
