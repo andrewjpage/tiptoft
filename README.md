@@ -56,6 +56,12 @@ brew install python # this is python v3
 pip3 install cython
 pip3 install tiptoft
 ```
+## Bioconda
+Install [Bioconda](http://bioconda.github.io/), then run:
+
+```
+conda install tiptoft
+```
 
 ## Windows
 It has been reported that the software works when using Ubuntu on Windows 10. This is not a supported platform as the authors don't use windows, so use at your own risk.
