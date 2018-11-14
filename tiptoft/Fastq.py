@@ -158,12 +158,12 @@ class Fastq:
             max_kmer_count=self.max_kmer_count)
         is_read_matching = False
 
-        sequence_hits, hit_counter, read_kmer_hits =
-        self.put_kmers_in_read_bins(
-            seq_length,
-            end,
-            self.fasta_kmers,
-            read_kmers)
+        sequence_hits, hit_counter, read_kmer_hits =\
+            self.put_kmers_in_read_bins(
+                seq_length,
+                end,
+                self.fasta_kmers,
+                read_kmers)
 
         blocks_obj = Blocks(self.k, self.min_block_size,
                             self.max_gap, self.margin)
