@@ -1,5 +1,4 @@
 import unittest
-import os
 from tiptoft.Gene import Gene
 
 
@@ -11,7 +10,7 @@ class TestGene(unittest.TestCase):
         self.assertEqual(str(
             g),
             'rep5.1	Full	100	NC005011	plasmidfinder'
-            '	rep5.1_rep(pMW2)_NC005011')	
+            '	rep5.1_rep(pMW2)_NC005011')
 
     def test_no_coverage(self):
         g = Gene('rep5.1_rep(pMW2)_NC005011', 0, 10)

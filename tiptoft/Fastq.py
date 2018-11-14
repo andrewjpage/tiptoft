@@ -6,7 +6,6 @@ from tiptoft.Blocks import Blocks
 import subprocess
 import os
 import numpy
-import time
 import sys
 
 
@@ -237,7 +236,6 @@ class Fastq:
             if gene_names[gene_name] < self.min_kmers_for_onex_pass:
                 continue
             kmers_dict = fasta_obj.sequences_to_kmers[gene_name]
-            num_gene_kmers = len(kmers_dict)
             intersection_hit_keys = set(kmers_dict) & hit_kmers_set
 
             if len(intersection_hit_keys) > min_kmers:
@@ -338,6 +336,8 @@ class Fastq:
         elif self.filename.endswith('.gz'):
             # first check that the file is OK according to gunzip
             retcode = subprocess.call('gunzip -t ' + self.filename, shell=True)
+            if retcode > 1:
+                raise Error("Error file may not be gzipped correctly")
 
             # now open the file
             f = os.popen('gunzip -c ' + self.filename)

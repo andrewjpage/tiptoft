@@ -1,5 +1,4 @@
 '''Read in a FASTA file and extract all the k-mers'''
-import operator
 from Bio import SeqIO
 from tiptoft.Kmers import Kmers
 
@@ -22,26 +21,9 @@ class Fasta:
         self.all_kmers = self.all_kmers_in_file()
         self.kmers_to_genes = self.all_kmers_to_seq_in_file()
         self.kmer_keys_set = set(self.all_kmers.keys())
-        self.sequences_to_kmers_count = self.sequence_kmers_vals()
+        self.sequences_to_kmers_count = self.sequence_kmers()
 
     '''Count the kmers in a sequence'''
-
-    def sequence_kmers_vals(self):
-        seq_counter = 0
-
-        kmer_to_sequences = {}
-        for record in SeqIO.parse(self.filename, "fasta"):
-
-            kmers = Kmers(str(record.seq), self.k, self.homopolyer_compression)
-            # We assume here that the sequence name is unique in the FASTA file
-            kmer_to_sequences[record.id] = kmers.get_all_kmers_freq(
-                max_kmer_count=self.max_kmer_count)
-
-            seq_counter += 1
-
-        return kmer_to_sequences
-
-    '''redundant'''
 
     def sequence_kmers(self):
         seq_counter = 0

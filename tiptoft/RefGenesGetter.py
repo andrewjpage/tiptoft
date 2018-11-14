@@ -7,11 +7,8 @@
 
 import os
 import subprocess
-import sys
-import time
 import pyfastaq
 import shutil
-import re
 
 
 class Error (Exception):

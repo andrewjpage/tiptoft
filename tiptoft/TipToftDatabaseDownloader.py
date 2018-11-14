@@ -1,6 +1,5 @@
 '''driver class for downloading database'''
 import logging
-import os
 from tiptoft.RefGenesGetter import RefGenesGetter
 
 
