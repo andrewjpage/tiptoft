@@ -81,6 +81,7 @@ class Fastq:
             elif self.map_read(read.reverse_read()):
                 match_counter += 1
                 r += 1
+        fh.close()
 
         self.full_gene_coverage(counter)
         self.logger.info("Number of reads: "+str(counter))
