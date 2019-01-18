@@ -1,0 +1,42 @@
+# YAML 1.2
+---
+abstract: "In the work presented here, we designed and developed two easy-to-use Web tools for in silico detection and characterization of whole-genome sequence (WGS) and whole-plasmid sequence data from members of the family Enterobacteriaceae. These tools will facilitate bacterial typing based on draft genomes of multidrug-resistant Enterobacteriaceae species by the rapid detection of known plasmid types. Replicon sequences from 559 fully sequenced plasmids associated with the family Enterobacteriaceae in the NCBI nucleotide database were collected to build a consensus database for integration into a Web tool called PlasmidFinder that can be used for replicon sequence analysis of raw, contig group, or completely assembled and closed plasmid sequencing data. The PlasmidFinder database currently consists of 116 replicon sequences that match with at least at 80% nucleotide identity all replicon sequences identified in the 559 fully sequenced plasmids. For plasmid multilocus sequence typing (pMLST) analysis, a database that is updated weekly was generated from www.pubmlst.org and integrated into a Web tool called pMLST. Both databases were evaluated using draft genomes from a collection of Salmonella enterica serovar Typhimurium isolates. PlasmidFinder identified a total of 103 replicons and between zero and five different plasmid replicons within each of 49 S. Typhimurium draft genomes tested. The pMLST Web tool was able to subtype genomic sequencing data of plasmids, revealing both known plasmid sequence types (STs) and new alleles and ST variants. In conclusion, testing of the two Web tools using both fully assembled plasmid sequences and WGS-generated draft genomes showed them to be able to detect a broad variety of plasmids that are often associated with antimicrobial resistance in clinically relevant bacterial pathogens."
+authors: 
+  -
+    affiliation: "Department of Infectious, Parasitic and Immuno-Mediated Diseases, Istituto Superiore di Sanità, Rome, Italy"
+    family-names: Carattoli
+    given-names: Alessandra
+  -
+    affiliation: "Danish Technical University, National Food Institute, Division for Epidemiology and Microbial Genomics, Lyngby, Denmark"
+    family-names: Zankari
+    given-names: Ea
+  -
+    affiliation: "Department of Infectious, Parasitic and Immuno-Mediated Diseases, Istituto Superiore di Sanità, Rome, Italy"
+    family-names: "García-Fernández"
+    given-names: Aurora
+  -
+    affiliation: "Danish Technical University, Center for Biological Sequence Analysis, Department of Systems Biology, Lyngby, Denmark"
+    family-names: "Voldby Larsen"
+    given-names: Mette
+  -
+    affiliation: "Danish Technical University, Center for Biological Sequence Analysis, Department of Systems Biology, Lyngby, Denmark"
+    family-names: Lund
+    given-names: Ole
+  -
+    affiliation: "Department of Infectious, Parasitic and Immuno-Mediated Diseases, Istituto Superiore di Sanità, Rome, Italy"
+    family-names: Villa
+    given-names: Laura
+  -
+    affiliation: "Danish Technical University, National Food Institute, Division for Epidemiology and Microbial Genomics, Lyngby, Denmark"
+    family-names: Aarestrup
+    given-names: "Frank Møller"
+  -
+    affiliation: "Danish Technical University, National Food Institute, Division for Epidemiology and Microbial Genomics, Lyngby, Denmark"
+    family-names: Hasman
+    given-names: Henrik
+cff-version: "1.0.3"
+doi: "10.1128/AAC.02412-14"
+message: "Please remember to cite the plasmidFinder paper as their database makes this software work"
+repository-code: "https://bitbucket.org/genomicepidemiology/plasmidfinder"
+title: "In Silico Detection and Typing of Plasmids using PlasmidFinder and Plasmid Multilocus Sequence Typing"
+...
