@@ -8,7 +8,8 @@ Given some raw uncorrected long reads, such as those from PacBio or Oxford Nanop
 [![Docker Pulls](https://img.shields.io/docker/pulls/andrewjpage/tiptoft.svg)](https://hub.docker.com/r/andrewjpage/tiptoft)  
 
 # Paper
-Coming soon.
+[![DOI](http://joss.theoj.org/papers/10.21105/joss.01021/status.svg)](https://doi.org/10.21105/joss.01021)
+AJ Page, T Seemann (2019). TipToft: detecting plasmids contained in uncorrected long read sequencing data. Journal of Open Source Software, 4(35), 1021, https://doi.org/10.21105/joss.01021
 
 Please remember to cite the plasmidFinder paper as their database makes this software work:
 
