@@ -36,16 +36,14 @@ class RefGenesGetter:
         except Error:
             raise Error('Error mkdir/chdir ' + tmpdir)
 
-        cmd = 'curl -o enterobacteriaceae.fsa https://bitbucket.org/' \
-              'genomicepidemiology/plasmidfinder_db/raw/'\
-              'master/enterobacteriaceae.fsa'
-        print('Downloading data with:', cmd, sep='\n')
-        subprocess.check_call(cmd, shell=True)
+        files_to_download = ['enterobacteriaceae.fsa', 'Inc18.fsa', 'NT_Rep.fsa', 'Rep1.fsa', 'Rep2.fsa', 'Rep3.fsa', 'RepA_N.fsa', 'RepL.fsa', 'Rep_trans.fsa']
 
-        cmd = 'curl -o gram_positive.fsa https://bitbucket.org/'\
-            'genomicepidemiology/plasmidfinder_db/raw/master/gram_positive.fsa'
-        print('Downloading data with:', cmd, sep='\n')
-        subprocess.check_call(cmd, shell=True)
+        for f in files_to_download:
+            cmd = 'curl -o '+str(f)+' https://bitbucket.org/' \
+              'genomicepidemiology/plasmidfinder_db/raw/'\
+              'master/'+str(f)
+            print('Downloading data with:', cmd, sep='\n')
+            subprocess.check_call(cmd, shell=True)
 
         print('Combining downloaded fasta files...')
         fout_fa = pyfastaq.utils.open_file_write(final_fasta)
