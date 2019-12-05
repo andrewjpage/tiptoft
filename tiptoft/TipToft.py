@@ -36,12 +36,12 @@ class TipToft:
             self.plasmid_data = str(pkg_resources.resource_filename(
                 __name__, 'data/plasmid_data.fa'))
 
-        if self.output_file and os.path.exists(self.output_file):
-            self.logger.error(
-                "The output file already exists, "
-                "please choose another filename: "
-                + self.output_file)
-            sys.exit(1)
+        #if self.output_file and os.path.exists(self.output_file):
+        #    self.logger.error(
+        #        "The output file already exists, "
+        #        "please choose another filename: "
+        #        + self.output_file)
+        #    sys.exit(1)
 
         if(self.filtered_reads_file and
                 os.path.exists(self.filtered_reads_file)):

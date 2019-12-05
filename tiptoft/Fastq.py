@@ -83,10 +83,12 @@ class Fastq:
                 r += 1
         fh.close()
 
-        self.full_gene_coverage(counter)
+        alleles = self.full_gene_coverage(counter)
         self.logger.info("Number of reads: "+str(counter))
         self.logger.info("Number of matching reads: " +
                          str(match_counter)+"\t"+str(f)+"\t"+str(r))
+		
+        print("\t".join([self.filename, str(len(alleles)), str(match_counter), str(counter), str(match_counter*100/counter)]))
 
         return self
 
