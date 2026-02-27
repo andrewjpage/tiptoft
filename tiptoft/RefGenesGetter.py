@@ -13,9 +13,10 @@ GNU GPL version 3
 """
 
 import os
-import subprocess
-import pyfastaq
 import shutil
+import subprocess
+
+import pyfastaq
 
 
 class Error(Exception):
@@ -54,6 +55,40 @@ class RefGenesGetter:
         self.max_download_attempts = 3
         self.sleep_time = 2
 
+    def _validate_fasta_file(self, filepath):
+        """
+        Validate that a downloaded file contains FASTA data.
+
+        BitBucket returns HTTP 200 with an HTML body for missing files,
+        so a successful download may still contain unusable content.
+
+        Args:
+            filepath (str): Path to the downloaded file
+
+        Raises:
+            Error: If the file cannot be read, is empty, or starts with '<'
+                   (indicating an HTML error page rather than FASTA data)
+        """
+        try:
+            with open(filepath, 'r') as fh:
+                first_line = fh.readline()
+        except OSError as e:
+            raise Error('Could not read downloaded file {}: {}'.format(filepath, e))
+
+        if not first_line:
+            raise Error(
+                'Downloaded file is empty: {}. '
+                'Check the URL and try again.'.format(filepath)
+            )
+
+        if first_line.strip().startswith('<'):
+            raise Error(
+                'Downloaded file appears to be an HTML error page, not a FASTA file: {}. '
+                'First line: {}. '
+                'Check that the filename still exists on the PlasmidFinder '
+                'repository.'.format(filepath, first_line.strip())
+            )
+
     def _get_from_plasmidfinder(self, outprefix):
         """
         Download and process PlasmidFinder database files.
@@ -86,24 +121,35 @@ class RefGenesGetter:
         except Error:
             raise Error('Error mkdir/chdir ' + tmpdir)
 
-        # List of PlasmidFinder database files to download
-        files_to_download = ['enterobacteriaceae.fsa', 'Inc18.fsa', 'NT_Rep.fsa', 'Rep1.fsa', 'Rep2.fsa', 'Rep3.fsa', 'RepA_N.fsa', 'RepL.fsa', 'Rep_trans.fsa']
+        # PlasmidFinder database files to download
+        # Note: 'enterobacteriales.fsa' replaced 'enterobacteriaceae.fsa' (Issue #28)
+        files_to_download = [
+            'enterobacteriales.fsa',
+            'Inc18.fsa',
+            'NT_Rep.fsa',
+            'Rep1.fsa',
+            'Rep2.fsa',
+            'Rep3.fsa',
+            'RepA_N.fsa',
+            'RepL.fsa',
+            'Rep_trans.fsa',
+        ]
 
-        # Download each file from BitBucket
-        for f in files_to_download:
-            cmd = 'curl -o '+str(f)+' https://bitbucket.org/' \
-              'genomicepidemiology/plasmidfinder_db/raw/'\
-              'master/'+str(f)
+        base_url = ('https://bitbucket.org/genomicepidemiology'
+                     '/plasmidfinder_db/raw/master/')
+
+        for filename in files_to_download:
+            cmd = 'curl -o ' + filename + ' ' + base_url + filename
             print('Downloading data with:', cmd, sep='\n')
             subprocess.check_call(cmd, shell=True)
+            self._validate_fasta_file(os.path.join(tmpdir, filename))
 
-        # Combine downloaded files into final outputs
+        # Combine downloaded files into final FASTA and TSV
         print('Combining downloaded fasta files...')
         fout_fa = pyfastaq.utils.open_file_write(final_fasta)
         fout_tsv = pyfastaq.utils.open_file_write(final_tsv)
-        name_count = {}  # Track duplicate names
+        name_count = {}
 
-        # Process each downloaded FASTA file
         for filename in os.listdir(tmpdir):
             if filename.endswith('.fsa'):
                 print('   ', filename)
@@ -111,21 +157,20 @@ class RefGenesGetter:
                     os.path.join(tmpdir, filename))
                 for seq in file_reader:
                     original_id = seq.id
-                    # Normalize ID: replace first underscore with dot
-                    seq.id = seq.id.replace('_', '.', 1)
+                    seq.id = seq.id.replace('_', '.', 1)  # Normalize ID
                     seq.seq = seq.seq.upper()
-                    
-                    # Handle duplicate sequence IDs
+
+                    # De-duplicate sequence IDs by appending occurrence count
                     if seq.id in name_count:
                         name_count[seq.id] += 1
                         seq.id = seq.id + '.' + str(name_count[seq.id])
                     else:
                         name_count[seq.id] = 1
 
-                    # Write to output files
                     print(seq, file=fout_fa)
-                    print(seq.id, '0', '0', '.', '.', 'Original name was ' +
-                          original_id, sep='\t', file=fout_tsv)
+                    print(seq.id, '0', '0', '.', '.',
+                          'Original name was ' + original_id,
+                          sep='\t', file=fout_tsv)
 
         pyfastaq.utils.close(fout_fa)
         pyfastaq.utils.close(fout_tsv)
