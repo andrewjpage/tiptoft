@@ -8,8 +8,6 @@ The homopolymer compression is quite intensive so it can be run with Cython
 for performance, with a pure Python fallback.
 """
 from homopolymer_compression import homopolymer_compression_of_sequence
-import pyximport
-pyximport.install()
 
 
 class Kmers:

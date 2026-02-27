@@ -8,7 +8,7 @@ import logging
 import os
 import sys
 import time
-import pkg_resources
+from importlib.resources import files
 from tiptoft.Fasta import Fasta
 from tiptoft.Fastq import Fastq
 
@@ -85,8 +85,7 @@ class TipToft:
 
         # Use bundled database if none specified
         if self.plasmid_data is None:
-            self.plasmid_data = str(pkg_resources.resource_filename(
-                __name__, 'data/plasmid_data.fa'))
+            self.plasmid_data = str(files('tiptoft').joinpath('data', 'plasmid_data.fa'))
 
         # Validate output files don't already exist
         # Note: Output file check is commented out to allow overwriting

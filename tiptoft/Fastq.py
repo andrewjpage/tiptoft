@@ -4,12 +4,11 @@ from tiptoft.Read import Read
 from tiptoft.Gene import Gene
 from tiptoft.Blocks import Blocks
 import subprocess
-import os
 import numpy
 import sys
 
 
-class Error (Exception):
+class Error(Exception):
     pass
 
 
@@ -338,15 +337,17 @@ class Fastq:
             f = sys.stdin
         elif self.filename.endswith('.gz'):
             # first check that the file is OK according to gunzip
-            retcode = subprocess.call('gunzip -t ' + self.filename, shell=True)
+            retcode = subprocess.call(['gunzip', '-t', self.filename])
             if retcode > 1:
                 raise Error("Error file may not be gzipped correctly")
 
             # now open the file
-            f = os.popen('gunzip -c ' + self.filename)
+            f = subprocess.Popen(
+                ['gunzip', '-c', self.filename],
+                stdout=subprocess.PIPE, text=True).stdout
         else:
             try:
-                f = open(self.filename)
+                f = open(self.filename, encoding='utf-8')
             except IOError:
                 raise Error("Error opening for reading file '" +
                             self.filename + "'")

@@ -18,7 +18,7 @@ import pyfastaq
 import shutil
 
 
-class Error (Exception):
+class Error(Exception):
     """Custom exception for RefGenesGetter errors."""
     pass
 
@@ -155,4 +155,4 @@ class RefGenesGetter:
             The method name is constructed dynamically to allow for
             future support of additional databases.
         """
-        exec('self._get_from_' + self.ref_db + '(outprefix)')
+        getattr(self, '_get_from_' + self.ref_db)(outprefix)

@@ -2,17 +2,14 @@
 
 import argparse
 import sys
-import os
-import pkg_resources
-sys.path.append('../')
-sys.path.append('./')
+from importlib.metadata import version as get_version, PackageNotFoundError
 from tiptoft.TipToftDatabaseDownloader import TipToftDatabaseDownloader
 from tiptoft.InputTypes import InputTypes
 
 version = ''
 try:
-	version = pkg_resources.get_distribution("tiptoft").version
-except pkg_resources.DistributionNotFound:
+	version = get_version("tiptoft")
+except PackageNotFoundError:
 	version = 'x.y.z'
 
 parser = argparse.ArgumentParser(
